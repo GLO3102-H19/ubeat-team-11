@@ -1,4 +1,4 @@
-<template>
+<template> 
     <nav>
         <ul>
             <li>

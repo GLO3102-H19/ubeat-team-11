@@ -1,7 +1,12 @@
 <template>
+    
     <div>
-        <h1>Home</h1>
-        <div>GLO-3102 Home</div>
+      <router-link to="/album"><img src="https://via.placeholder.com/150" alt=""></router-link>
+       <img src="https://via.placeholder.com/150" alt="">
+       <img src="https://via.placeholder.com/150" alt="">
+       <img src="https://via.placeholder.com/150" alt="">
+       <img src="https://via.placeholder.com/150" alt="">
+       <img src="https://via.placeholder.com/150" alt="">
     </div>
 </template>
 
