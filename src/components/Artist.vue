@@ -1,4 +1,5 @@
 <template>
+
     <div>
     <div class="artistBanner">
      <h4 class="artistName">Artist Name</h4>
@@ -20,10 +21,37 @@
         <!--Par il faudrait design afin qu'il accepte plusieurs chanson-->
         <div class="artistPopularSong">
     
+            <div class="SongRow">
             <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
             <h6 class="titleSong">Title Song</h6>
             <h6 class="albumSong">Album Song</h6>
             <h6 class="timeSong">Time</h6>
+            </div>
+            <div class="SongRow">
+            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
+            <h6 class="titleSong">Title Song</h6>
+            <h6 class="albumSong">Album Song</h6>
+            <h6 class="timeSong">Time</h6>
+            </div>
+            <div class="SongRow">
+            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
+            <h6 class="titleSong">Title Song</h6>
+            <h6 class="albumSong">Album Song</h6>
+            <h6 class="timeSong">Time</h6>
+            </div>
+            <div class="SongRow">
+            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
+            <h6 class="titleSong">Title Song</h6>
+            <h6 class="albumSong">Album Song</h6>
+            <h6 class="timeSong">Time</h6>
+            </div>
+            <div class="SongRow">
+            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
+            <h6 class="titleSong">Title Song</h6>
+            <h6 class="albumSong">Album Song</h6>
+            <h6 class="timeSong">Time</h6>
+            </div>
+            
         </div>    
      
 
@@ -31,24 +59,25 @@
         <div class="artistAlbum">
             <figure>
                 <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle<br>Year</figcaption>
+                <figcaption>AlbumTitle • Year</figcaption>
             </figure>
              <figure>
                 <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle<br>Year</figcaption>
+                <figcaption>AlbumTitle • Year</figcaption>
             </figure>
              <figure>
                 <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle<br>Year</figcaption>
+                <figcaption>AlbumTitle • Year</figcaption>
             </figure>
              <figure>
                 <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle<br>Year</figcaption>
+                <figcaption>AlbumTitle • Year</figcaption>
             </figure>
              <figure>
                 <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle<br>Year</figcaption>
+                <figcaption>AlbumTitle • Year</figcaption>
             </figure>
+            
         </div>
     </div>
     </div>
@@ -56,6 +85,13 @@
 </template>
 
 <style>
+.artistAlbum{
+    color:#c9d0d4;
+    display: flex;
+    flex-flow: row,wrap;
+    font-family: Helvetica, sans-serif;
+    justify-content: center;
+}
 .artistBackGround{
     background-color:#ccc;
     height:100%;
@@ -119,10 +155,9 @@ width: 100%;
     align-items: center;
     color: #bbc3c8;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-family: Helvetica, sans-serif;
     font-size: 16px;
-    flex-direction: row;
     justify-content:space-around;
     margin: 0 10%;
     width: 50%;
@@ -132,10 +167,12 @@ width: 100%;
 .artistPopularSong>*{
     padding: auto;
     margin: auto;
-    text-align: center;
+    
     
 }
-
+figure>*{
+    text-align: center;
+}
 .randomSong{
     background: whitesmoke;
     border: 2px solid #fff;
