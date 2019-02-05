@@ -155,7 +155,7 @@ width: 100%;
     align-items: center;
     color: #bbc3c8;
     display: flex;
-    flex-direction: row;
+    flex-direction:column;
     font-family: Helvetica, sans-serif;
     font-size: 16px;
     justify-content:space-around;
@@ -190,6 +190,13 @@ figure>*{
 .songInfo{
     display:flex;
    
+}
+.SongRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
 }
 
 </style>
