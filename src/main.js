@@ -4,6 +4,14 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
+import VueMaterial from '../node_modules/vue-material';
+import '../node_modules/vue-material/dist/vue-material.css';
+import '../node_modules/vue-material/dist/theme/default.css';
+
+
+Vue.use(VueMaterial);
+
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
