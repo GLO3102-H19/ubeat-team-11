@@ -1,54 +1,50 @@
 <template>
-    <nav>
-      <div class="phone-viewport">
-        <md-bottom-bar md-acent="shift">
-          <md-bottom-bar-item id="bottom-bar-item-home" md-label="Home" md-icon="home"  to="/"  ></md-bottom-bar-item>
-          <md-bottom-bar-item id="bottom-bar-item-artist" md-label="Artist" md-icon="people" to="/artist"></md-bottom-bar-item>
-          <md-bottom-bar-item id="bottom-bar-item-album" md-label="Album" md-icon="book" to="/album"></md-bottom-bar-item>
-        </md-bottom-bar>
+   
+    <div>
+     
+
+      <md-toolbar class="md-default" md-elevation="1">
+        <h3 class="md-title md-xsmall-hide md-small-hide" style="flex: 1">Ubeat</h3>
+        <md-button class="md-xsmall-hide md-small-hide" to="/">Home</md-button>
+        <md-button class="md-xsmall-hide md-small-hide" to="/artist">Artist</md-button>
+        <md-button class="md-xsmall-hide md-small-hide" to="/Album">Album</md-button>
+ 
+
+
+    
+      <div class="md-toolbar-row">
+        <div class="md-toolbar-section-start ">
+          <md-button class="md-icon-button">
+            <md-icon class="md-medium-hide md-large-hide md-xlarge-hide">menu</md-icon>
+          </md-button>
+        </div>
+
+        <div class="md-toolbar-section-end">
+          <md-button class="md-icon-button">
+            <md-icon class="md-medium-hide md-large-hide md-xlarge-hide">refresh</md-icon>
+          </md-button>
+
+          <md-button class="md-icon-button">
+            <md-icon class="md-medium-hide md-large-hide md-xlarge-hide">more_vert</md-icon>
+          </md-button>
+        </div>
       </div>
 
+    
+    </md-toolbar>
 
 
 
 
 
-        <ul class="navBarContainer">
+    </div>
 
-
-
-
-
-            <li>
-                <router-link to="/" >Home</router-link>
-            </li>
-            <li>
-                <router-link to="/artist">Artist</router-link>
-            </li>
-            <li>
-                <router-link to="/album">Album</router-link>
-            </li>
-            <li class="search">
-                <input type="text" class="searchInput" placeholder="Search...">
-            </li>
-
-        </ul>
-    </nav>
-
+    
+    
 </template>
 
-<style>
-.navBarContainer{
-    display: flex;
-    justify-content:space-around;
-}
-.searchInput{
-    flex:1;
-}
-.navBarContainer>li{
-    flex:1;
-}
 
+<style>
 
 
 </style>
