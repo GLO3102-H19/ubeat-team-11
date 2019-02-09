@@ -109,7 +109,10 @@ background-repeat: no-repeat;
 display: flex;
 flex-direction: column;
 justify-content:space-between;
-width: 100%;
+  position: absolute;
+  top: 0  ;
+  left: auto;
+  opacity: 50%;
 }
 .artistContent{
     background:black;
