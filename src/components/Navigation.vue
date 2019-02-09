@@ -4,7 +4,7 @@
     <md-toolbar class="md-transparent">
       <div class="md-toolbar-row">
         <div class="md-toolbar-section-start">
-         <h3 class="md-title" style="flex: 1">Ubeat</h3>
+         <h3 class="md-title" style="flex: 1"><a href="/" id="titleDesign">Ubeat</a></h3>
         </div>
 
         <md-autocomplete
@@ -51,7 +51,7 @@
    
   }
   
-.titleStyle{
-  color:white;
+#titleDesign{
+ color: black; 
 }
 </style>
