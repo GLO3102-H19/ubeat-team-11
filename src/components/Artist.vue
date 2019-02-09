@@ -1,61 +1,143 @@
 <template>
+   <div>
+ 
+    <md-card class="artistBanner">
+      <md-card-media-cover>
+        <md-card-media md-ratio="16/9" md-medium=true md-big=true>
+          <img src="https://dummyimage.com/600x200/878787/c2c2c2" alt="artist">
+        </md-card-media>
 
-    <div>
-    <div class="artistBanner">
-     <h4 class="artistName">Artist Name</h4>
+        <md-card-area>
+          <md-card-header>
+            <span class="md-title">Name of the Artist</span>
+            <span class="md-subhead">Desscription</span>
 
-     <p class="artistDescription">
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quis
-         adipisci culpa nihil sed corporis assumenda enim ex hic sint odio, tempora vero omnis fuga aliquid necessitatibus,
-         exercitationem repudiandae ducimus.
-     </p>
+        
+          </md-card-header>
+        
+               <md-card-content class="artistDesctiptionFormat">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. In quod, cum eum beatae aperiam nobis laudantium necessitatibus perferendis, laboriosam natus dignissimos reprehenderit suscipit deserunt eos eligendi, perspiciatis molestiae sit minima.
+          </md-card-content>
+          <md-card-actions md-alignment="left">
+            
+            <md-button class="md-icon-button">
+                
+                <md-icon class="md-size-2x">play_arrow</md-icon>
+            </md-button>
+           
+          </md-card-actions>
+          
+       
 
-     <button class="randomSong">
-         Shuffle
-     </button>
-    </div>
+       
+        </md-card-area>
+      </md-card-media-cover>
+    </md-card>
 
-    <div class="artistContent">
+<div class="artistContent">
+ <md-table md-card>
+    <md-table-toolbar style="background:black;">
+        <h1 class="md-title" style="color:white">Popular songs</h1>
+      </md-table-toolbar>
 
-        <h5 class="artistContentSubTitles">Popular Songs</h5>
-        <!--Par il faudrait design afin qu'il accepte plusieurs chanson-->
-        <div class="artistPopularSong">
+      <md-table-row class="artistPopularSongTitle">
+        <md-table-head style="color:white">Album</md-table-head>
+        <md-table-head style="color: white">Title</md-table-head>
+        <md-table-head style="color:white">Album Name</md-table-head>
+        <md-table-head style="color:white">Time</md-table-head>
+      </md-table-row>
 
-            <div class="SongRow">
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-            <h6 class="titleSong">Title Song</h6>
-            <h6 class="albumSong">Album Song</h6>
-            <h6 class="timeSong">Time</h6>
-            </div>
-            <div class="SongRow">
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-            <h6 class="titleSong">Title Song</h6>
-            <h6 class="albumSong">Album Song</h6>
-            <h6 class="timeSong">Time</h6>
-            </div>
-            <div class="SongRow">
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-            <h6 class="titleSong">Title Song</h6>
-            <h6 class="albumSong">Album Song</h6>
-            <h6 class="timeSong">Time</h6>
-            </div>
-            <div class="SongRow">
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-            <h6 class="titleSong">Title Song</h6>
-            <h6 class="albumSong">Album Song</h6>
-            <h6 class="timeSong">Time</h6>
-            </div>
-            <div class="SongRow">
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-            <h6 class="titleSong">Title Song</h6>
-            <h6 class="albumSong">Album Song</h6>
-            <h6 class="timeSong">Time</h6>
-            </div>
+      <md-table-row class="artistPopularSong">
+        <md-table-cell><img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic"></md-table-cell>
+        <md-table-cell>Alpha</md-table-cell>
+        <md-table-cell>Beta</md-table-cell>
+        <md-table-cell>Charlie</md-table-cell>
+      </md-table-row>
 
-        </div>
+    <md-table-row class="artistPopularSong">
+        <md-table-cell><img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic"></md-table-cell>
+        <md-table-cell>Alpha</md-table-cell>
+        <md-table-cell>Beta</md-table-cell>
+        <md-table-cell>Charlie</md-table-cell>
+      </md-table-row>
+    <md-table-row class="artistPopularSong">
+        <md-table-cell><img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic"></md-table-cell>
+        <md-table-cell>Alpha</md-table-cell>
+        <md-table-cell>Beta</md-table-cell>
+        <md-table-cell>Charlie</md-table-cell>
+      </md-table-row>
+    
+  
+    
+    <md-table-row class="artistPopularSong">
+        <md-table-cell><img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic"></md-table-cell>
+        <md-table-cell>Alpha</md-table-cell>
+        <md-table-cell>Beta</md-table-cell>
+        <md-table-cell>Charlie</md-table-cell>
+    </md-table-row>
+    <md-table-row class="artistPopularSong">
+        <md-table-cell><img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic"></md-table-cell>
+        <md-table-cell>Alpha</md-table-cell>
+        <md-table-cell>Beta</md-table-cell>
+        <md-table-cell>Charlie</md-table-cell>
+    </md-table-row>
+</md-table>
+</div>
 
+  <h5 class="md-title md-transparent" md-elevation=0>Albums</h5>
+  <div class="artistAlbums">
+    <md-card class="Album">
+      <md-card-header>
+        <md-card-header-text>
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Year</div>
+        </md-card-header-text>
 
-        <h5 class="artistContentSubTitles">Albums</h5>
+        <md-card-media md-medium>
+          <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
+        </md-card-media>
+      </md-card-header>
+
+      <md-card-actions>
+        <md-button>Shuffle</md-button>
+      </md-card-actions>
+    </md-card>
+      <md-card class="Album">
+      <md-card-header>
+        <md-card-header-text>
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Year</div>
+        </md-card-header-text>
+
+        <md-card-media md-medium>
+          <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
+        </md-card-media>
+      </md-card-header>
+
+      <md-card-actions>
+        <md-button>Shuffle</md-button>
+      </md-card-actions>
+    </md-card>
+      <md-card class="Album">
+      <md-card-header>
+        <md-card-header-text>
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Year</div>
+        </md-card-header-text>
+
+        <md-card-media md-medium>
+          <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
+        </md-card-media>
+      </md-card-header>
+
+      <md-card-actions>
+        <md-button>Shuffle</md-button>
+      </md-card-actions>
+    </md-card>
+    
+  </div>
+
+       <!-- <h5 class="artistContentSubTitles">Albums</h5>
         <div class="artistAlbum">
             <figure>
                 <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
@@ -79,19 +161,30 @@
             </figure>
 
         </div>
-    </div>
-    </div>
+    </div>-->
+   
+ </div>
 
 </template>
 
 <style>
-.artistAlbum{
+.artistDesctiptionFormat{
+    width: 50%;
+    text-align: justify;
+}
+.Album{
+    width: 25%;
+    background: black;
+    
+}
+.artistAlbums{
     color:#c9d0d4;
     display: flex;
-    flex-flow: row wrap;
-    font-family: Helvetica, sans-serif;
-    justify-content: center;
+    justify-content: space-evenly;
+    background: black;
+    
 }
+
 .artistBackGround{
     background-color:#ccc;
     height:100%;
@@ -102,18 +195,7 @@
     width:100%;
     z-index:1000;
 }
-.artistBanner{
-background: url(https://dummyimage.com/600x400/000/fff) no-repeat center center fixed;
-background-size: cover;
-background-repeat: no-repeat;
-display: flex;
-flex-direction: column;
-justify-content:space-between;
-  position: absolute;
-  top: 0  ;
-  left: auto;
-  opacity: 50%;
-}
+
 .artistContent{
     background:black;
     display: flex;
@@ -155,24 +237,17 @@ justify-content:space-between;
 
 }
 .artistPopularSong{
-    align-items: center;
-    color: #bbc3c8;
-    display: flex;
-    flex-direction:column;
-    font-family: Helvetica, sans-serif;
-    font-size: 16px;
-    justify-content:space-around;
-    margin: 0 10%;
-    width: 50%;
-
+ background-color: black ;
+color: white;
 
 }
-.artistPopularSong>*{
-    padding: auto;
-    margin: auto;
-
+.artistPopularSongTitle{
+background-color: black;
+color:white;
 
 }
+
+
 figure>*{
     text-align: center;
 }

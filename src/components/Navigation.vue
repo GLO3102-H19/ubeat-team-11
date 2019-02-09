@@ -1,7 +1,7 @@
 <template>
 
     
-    <md-toolbar>
+    <md-toolbar class="md-transparent">
       <div class="md-toolbar-row">
         <div class="md-toolbar-section-start">
          <h3 class="md-title" style="flex: 1">Ubeat</h3>
@@ -13,7 +13,7 @@
           v-model="selectSong"
           :md-options="songs"
           md-layout="box">
-          <label style="color: black">Search...</label>
+          <label>Search...</label>
         </md-autocomplete>
 
         <div class="md-toolbar-section-end">
