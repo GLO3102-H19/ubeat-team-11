@@ -31,7 +31,7 @@ npm start
 ## Livrable 1
 Faites vos modifications aux fichiers `Album.vue`, `Artist.vue`, `Home.vue` et `Navigation.vue`. Ajoutez votre HTML dans la balise `<template>` et votre CSS dans la balise `<style>` de chacun des components.
 
-**Before you sone the project, make sure that you install the latest modules `npm install`**
+**Before you start the project, make sure that you install the latest modules `npm install`**
 Note From Team-11
 
 ## Livrable 2-3
