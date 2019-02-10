@@ -1,26 +1,32 @@
 <template>
-    <div id="album">
+    <div id="album" class="md-layout">
 
 
-       <md-content class=" md-layout-item md-size-100" style="background-color: black;color: white">
-              <div class="md-layout-item  imageAlbum" >
-                  <figure>
+       <md-content class=" md-layout-item md-size-100">
+          <div class="md-layout md-alignment-center-left">
+            <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
+                   <figure>
                      <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-                     <figcaption  >Album name </figcaption>
-                    <div>
-                      <md-button > <md-icon class="buttonShuffle" style="flex:content;color: white">shuffle </md-icon></md-button>
-                    </div>
+                     <figcaption class="md-layout md-alignment-center-center">
+                      <span class="md-subhead md-layout-item md-size-25">Album Name</span>
+                       <md-button class="md-layout-item md-size-50"> <md-icon class="buttonShuffle">shuffle </md-icon></md-button> 
+                    </figcaption>
+                 
                   </figure>
-
-                <p class= "textAlbum"  >
+            </div>
+            <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
+                  
+                <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     In quod, cum eum beatae aperiam nobis laudantium necessitatibus
                     perferendis,
                     laboriosam natus dignissimos reprehenderit suscipit deserunt eos eligendi,
                     perspiciatis molestiae sit minima.
                   </p>
+            </div>
 
-              </div>
+          </div>
+         
       </md-content>
 
 
