@@ -1,138 +1,200 @@
 <template>
-  <div>
-    <md-card class="artistBanner">
-      <md-card-media-cover>
-        <md-card-media md-ratio="16/9" md-medium="true" md-big="true">
-          <img src="https://dummyimage.com/600x200/878787/c2c2c2" alt="artist">
-        </md-card-media>
 
-        <md-card-area>
+<div class="md-layout">
+    <div class="md-layout-item md-size-100">
+      <md-card>
+        <md-card-media-cover class="md-layout">
+          <md-card-media class="md-layout-item" md-ratio="16/9" md-medium="true" md-big="true">
+            <img src="https://dummyimage.com/600x200/878787/c2c2c2" alt="artistPic">
+          </md-card-media>
+          <md-card-area
+            class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100"
+          >
+            <md-card-header>
+              <span class="md-title">Name of the Artist</span>
+              <span class="md-subhead">Desscription</span>
+            </md-card-header>
+
+            <md-card-content
+              class="artistDesctiptionFormat"
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. In quod, cum eum beatae aperiam nobis laudantium necessitatibus perferendis, laboriosam natus dignissimos reprehenderit suscipit deserunt eos eligendi, perspiciatis molestiae sit minima.</md-card-content>
+            <md-card-actions md-alignment="left">
+              <md-button class="md-icon-button">
+                <md-icon class="md-size-2x">play_arrow</md-icon>
+              </md-button>
+            </md-card-actions>
+          </md-card-area>
+        </md-card-media-cover>
+      </md-card>
+    </div>
+
+    <div class="md-layout-item md-size-100 artistContent">
+      <div class="md-layout md-gutter">
+        <span class="md-headline md-layout-item md-size-100">Popular Songs</span>
+
+        <div class="md-layout-item md-xlarge-size-100 md-large-size-100">
+          <div class="md-layout md-alignment-space-around-center">
+            <div class="md-layout-item md-xlarge-size-75 md-large-size-75">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+                <div class="md-layout-item">
+                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
+                </div>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
+                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
+                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
+              </div>
+
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="md-layout-item md-size-100">
+      <h5 class="md-title md-transparent" md-elevation="0">Albums</h5>
+      <div class="artistAlbums">
+        <md-card class="Album">
           <md-card-header>
-            <span class="md-title">Name of the Artist</span>
-            <span class="md-subhead">Desscription</span>
+            <md-card-header-text>
+              <div class="md-title">Album Name</div>
+              <div class="md-subhead">Year</div>
+            </md-card-header-text>
+
+            <md-card-media md-medium>
+              <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
+            </md-card-media>
           </md-card-header>
 
-          <md-card-content
-            class="artistDesctiptionFormat"
-          >Lorem ipsum dolor sit amet, consectetur adipisicing elit. In quod, cum eum beatae aperiam nobis laudantium necessitatibus perferendis, laboriosam natus dignissimos reprehenderit suscipit deserunt eos eligendi, perspiciatis molestiae sit minima.</md-card-content>
-          <md-card-actions md-alignment="left">
-            <md-button class="md-icon-button">
-              <md-icon class="md-size-2x">play_arrow</md-icon>
-            </md-button>
+          <md-card-actions>
+            <md-button>Shuffle</md-button>
           </md-card-actions>
-        </md-card-area>
-      </md-card-media-cover>
-    </md-card>
+        </md-card>
+        <md-card class="Album">
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">Album Name</div>
+              <div class="md-subhead">Year</div>
+            </md-card-header-text>
 
-    <div class="artistContent">
-      <md-table md-card>
-        <md-table-toolbar style="background:black;">
-          <h1 class="md-title" style="color:white">Popular songs</h1>
-        </md-table-toolbar>
+            <md-card-media md-medium>
+              <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
+            </md-card-media>
+          </md-card-header>
 
-        <md-table-row class="artistPopularSongTitle">
-          <md-table-head style="color:white">Album</md-table-head>
-          <md-table-head style="color: white">Title</md-table-head>
-          <md-table-head style="color:white">Album Name</md-table-head>
-          <md-table-head style="color:white">Time</md-table-head>
-        </md-table-row>
+          <md-card-actions>
+            <md-button>Shuffle</md-button>
+          </md-card-actions>
+        </md-card>
+        <md-card class="Album">
+          <md-card-header>
+            <md-card-header-text>
+              <div class="md-title">Album Name</div>
+              <div class="md-subhead">Year</div>
+            </md-card-header-text>
 
-        <md-table-row class="artistPopularSong">
-          <md-table-cell>
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-          </md-table-cell>
-          <md-table-cell>Alpha</md-table-cell>
-          <md-table-cell>Beta</md-table-cell>
-          <md-table-cell>Charlie</md-table-cell>
-        </md-table-row>
+            <md-card-media md-medium>
+              <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
+            </md-card-media>
+          </md-card-header>
 
-        <md-table-row class="artistPopularSong">
-          <md-table-cell>
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-          </md-table-cell>
-          <md-table-cell>Alpha</md-table-cell>
-          <md-table-cell>Beta</md-table-cell>
-          <md-table-cell>Charlie</md-table-cell>
-        </md-table-row>
-        <md-table-row class="artistPopularSong">
-          <md-table-cell>
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-          </md-table-cell>
-          <md-table-cell>Alpha</md-table-cell>
-          <md-table-cell>Beta</md-table-cell>
-          <md-table-cell>Charlie</md-table-cell>
-        </md-table-row>
-
-        <md-table-row class="artistPopularSong">
-          <md-table-cell>
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-          </md-table-cell>
-          <md-table-cell>Alpha</md-table-cell>
-          <md-table-cell>Beta</md-table-cell>
-          <md-table-cell>Charlie</md-table-cell>
-        </md-table-row>
-        <md-table-row class="artistPopularSong">
-          <md-table-cell>
-            <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pic">
-          </md-table-cell>
-          <md-table-cell>Alpha</md-table-cell>
-          <md-table-cell>Beta</md-table-cell>
-          <md-table-cell>Charlie</md-table-cell>
-        </md-table-row>
-      </md-table>
+          <md-card-actions>
+            <md-button>Shuffle</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
     </div>
+  </div> 
 
-    <h5 class="md-title md-transparent" md-elevation="0">Albums</h5>
-    <div class="artistAlbums">
-      <md-card class="Album">
-        <md-card-header>
-          <md-card-header-text>
-            <div class="md-title">Album Name</div>
-            <div class="md-subhead">Year</div>
-          </md-card-header-text>
-
-          <md-card-media md-medium>
-            <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-          </md-card-media>
-        </md-card-header>
-
-        <md-card-actions>
-          <md-button>Shuffle</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card class="Album">
-        <md-card-header>
-          <md-card-header-text>
-            <div class="md-title">Album Name</div>
-            <div class="md-subhead">Year</div>
-          </md-card-header-text>
-
-          <md-card-media md-medium>
-            <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-          </md-card-media>
-        </md-card-header>
-
-        <md-card-actions>
-          <md-button>Shuffle</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card class="Album">
-        <md-card-header>
-          <md-card-header-text>
-            <div class="md-title">Album Name</div>
-            <div class="md-subhead">Year</div>
-          </md-card-header-text>
-
-          <md-card-media md-medium>
-            <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-          </md-card-media>
-        </md-card-header>
-
-        <md-card-actions>
-          <md-button>Shuffle</md-button>
-        </md-card-actions>
-      </md-card>
-    </div>
+</template>
 
     <!-- <h5 class="artistContentSubTitles">Albums</h5>
         <div class="artistAlbum">
@@ -159,8 +221,7 @@
 
         </div>
     </div>-->
-  </div>
-</template>
+
 
 <style>
 .artistDesctiptionFormat {
@@ -189,13 +250,13 @@
   z-index: 1000;
 }
 
-.artistContent {
+/*.artistContent {
   background: black;
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
-}
+}*/
 .artistContentSubTitles {
   color: #c9d0d4;
   font-family: Helvetica, sans-serif;
@@ -238,6 +299,10 @@
 
 figure > * {
   text-align: center;
+}
+.imageSize {
+  display: flex;
+  justify-content: center;
 }
 .randomSong {
   background: whitesmoke;
