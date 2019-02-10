@@ -1,6 +1,5 @@
 <template>
-
-<div class="md-layout">
+  <div class="md-layout">
     <div class="md-layout-item md-size-100">
       <md-card>
         <md-card-media-cover class="md-layout">
@@ -28,7 +27,7 @@
       </md-card>
     </div>
 
-    <div class="md-layout-item md-size-100 artistContent">
+    <div class="md-layout-item md-size-100">
       <div class="md-layout md-gutter">
         <span class="md-headline md-layout-item md-size-100">Popular Songs</span>
 
@@ -43,7 +42,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -51,7 +50,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -59,7 +58,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -67,7 +66,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -75,7 +74,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -83,7 +82,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -91,7 +90,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -99,7 +98,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -107,7 +106,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -115,7 +114,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -123,7 +122,7 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-                <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
+              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
                 <div class="md-layout-item">
                   <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
                 </div>
@@ -131,8 +130,6 @@
                 <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
                 <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
               </div>
-
-             
             </div>
           </div>
         </div>
@@ -140,87 +137,99 @@
     </div>
 
     <div class="md-layout-item md-size-100">
-      <h5 class="md-title md-transparent" md-elevation="0">Albums</h5>
-      <div class="artistAlbums">
-        <md-card class="Album">
-          <md-card-header>
-            <md-card-header-text>
-              <div class="md-title">Album Name</div>
-              <div class="md-subhead">Year</div>
-            </md-card-header-text>
+      <div class="md-layout md-gutter">
+        <span class="md-headline md-layout-item md-size-100">Albums</span>
+        <div class="md-layout-item md-size-100">
+          <div class="md-layout md-gutter md-size-100">
+            <div class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
+               <figure>
+                <img class=""
+                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
+                  alt="AlbumPic"
+                
+                >
 
-            <md-card-media md-medium>
-              <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-            </md-card-media>
-          </md-card-header>
-
-          <md-card-actions>
-            <md-button>Shuffle</md-button>
-          </md-card-actions>
-        </md-card>
-        <md-card class="Album">
-          <md-card-header>
-            <md-card-header-text>
-              <div class="md-title">Album Name</div>
-              <div class="md-subhead">Year</div>
-            </md-card-header-text>
-
-            <md-card-media md-medium>
-              <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-            </md-card-media>
-          </md-card-header>
-
-          <md-card-actions>
-            <md-button>Shuffle</md-button>
-          </md-card-actions>
-        </md-card>
-        <md-card class="Album">
-          <md-card-header>
-            <md-card-header-text>
-              <div class="md-title">Album Name</div>
-              <div class="md-subhead">Year</div>
-            </md-card-header-text>
-
-            <md-card-media md-medium>
-              <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-            </md-card-media>
-          </md-card-header>
-
-          <md-card-actions>
-            <md-button>Shuffle</md-button>
-          </md-card-actions>
-        </md-card>
+                <figcaption>
+                  <span class="md-subheading">Album ∙ Year</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
+            >
+              <figure>
+                <img
+                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
+                  alt="AlbumPic"
+                  srcset
+                >
+                <figcaption>
+                  <span class="md-subheading">Album ∙ Year</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
+            >
+              <figure>
+                <img
+                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
+                  alt="AlbumPic"
+                  srcset
+                >
+                <figcaption class="alignAlbumInfo">
+                  <span class="md-subheading">Album ∙ Year</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
+            >
+              <figure>
+                <img
+                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
+                  alt="AlbumPic"
+                  srcset
+                >
+                <figcaption>
+                  <span class="md-subheading">Album ∙ Year</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
+            >
+              <figure>
+                <img
+                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
+                  alt="AlbumPic"
+                  srcset
+                >
+                <figcaption>
+                  <span class="md-subheading">Album ∙ Year</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div
+              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
+            >
+              <figure>
+                <img
+                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
+                  alt="AlbumPic"
+                  srcset
+                >
+                <figcaption>
+                  <span class="md-subheading">Album ∙ Year</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div> 
-
+  </div>
 </template>
-
-    <!-- <h5 class="artistContentSubTitles">Albums</h5>
-        <div class="artistAlbum">
-            <figure>
-                <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle • Year</figcaption>
-            </figure>
-             <figure>
-                <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle • Year</figcaption>
-            </figure>
-             <figure>
-                <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle • Year</figcaption>
-            </figure>
-             <figure>
-                <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle • Year</figcaption>
-            </figure>
-             <figure>
-                <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album Pic">
-                <figcaption>AlbumTitle • Year</figcaption>
-            </figure>
-
-        </div>
-    </div>-->
 
 
 <style>
@@ -228,9 +237,8 @@
   width: 50%;
   text-align: justify;
 }
-.Album {
-  width: 25%;
-  background: black;
+.alignAlbumInfo{
+  text-align: center;
 }
 .artistAlbums {
   color: #c9d0d4;
