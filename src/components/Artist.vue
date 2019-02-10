@@ -141,89 +141,81 @@
         <span class="md-headline md-layout-item md-size-100">Albums</span>
         <div class="md-layout-item md-size-100">
           <div class="md-layout md-gutter md-size-100">
-            <div class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
-               <figure>
-                <img class=""
-                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                  alt="AlbumPic"
-                
-                >
-
-                <figcaption>
-                  <span class="md-subheading">Album ∙ Year</span>
-                </figcaption>
-              </figure>
+            <div class="md-layout-item md-gutter md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
+              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
+                <md-card-media class="md-layout-item md-size-100">
+                  <md-ripple>
+                    <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="People">
+                  </md-ripple>
+                </md-card-media>
+                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
+                  <div class="md-title">Album</div>
+                  <div class="md-subhead">Year</div>
+                </md-card-header>
+              </md-card>
+            
             </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
-            >
-              <figure>
-                <img
-                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                  alt="AlbumPic"
-                  srcset
-                >
-                <figcaption>
-                  <span class="md-subheading">Album ∙ Year</span>
-                </figcaption>
-              </figure>
+             <div class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
+              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
+                <md-card-media class="md-layout-item md-size-100">
+                  <md-ripple>
+                    <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="People">
+                  </md-ripple>
+                </md-card-media>
+                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
+                  <div class="md-title">Album</div>
+                  <div class="md-subhead">Year</div>
+                </md-card-header>
+              </md-card>
+            
             </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
-            >
-              <figure>
-                <img
-                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                  alt="AlbumPic"
-                  srcset
-                >
-                <figcaption class="alignAlbumInfo">
-                  <span class="md-subheading">Album ∙ Year</span>
-                </figcaption>
-              </figure>
+             <div class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
+              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
+                <md-card-media class="md-layout-item md-size-100">
+                  <md-ripple>
+                    <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="People">
+                  </md-ripple>
+                </md-card-media>
+                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
+                  <div class="md-title">Album</div>
+                  <div class="md-subhead">Year</div>
+                </md-card-header>
+              </md-card>
+            
             </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
-            >
-              <figure>
-                <img
-                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                  alt="AlbumPic"
-                  srcset
-                >
-                <figcaption>
-                  <span class="md-subheading">Album ∙ Year</span>
-                </figcaption>
-              </figure>
+             <div class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
+              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
+                <md-card-media class="md-layout-item md-size-100">
+                  <md-ripple>
+                    <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="People">
+                  </md-ripple>
+                </md-card-media>
+                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
+                  <div class="md-title">Album</div>
+                  <div class="md-subhead">Year</div>
+                </md-card-header>
+              </md-card>
+            
             </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
-            >
-              <figure>
-                <img
-                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                  alt="AlbumPic"
-                  srcset
-                >
-                <figcaption>
-                  <span class="md-subheading">Album ∙ Year</span>
-                </figcaption>
-              </figure>
+             <div class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around">
+              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
+                <md-card-media class="md-layout-item md-size-100 md-xsmall-100 md-medium-size-100">
+                  <md-ripple>
+                    <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="People">
+                  </md-ripple>
+                </md-card-media>
+                <md-card-header class="md-layout-item md-size-100 md-xsmall-100 md-medium-size-100">
+                  <div class="md-title">Album</div>
+                  <div class="md-subhead">Year</div>
+                </md-card-header>
+              </md-card>
+            
             </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100"
-            >
-              <figure>
-                <img
-                  src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                  alt="AlbumPic"
-                  srcset
-                >
-                <figcaption>
-                  <span class="md-subheading">Album ∙ Year</span>
-                </figcaption>
-              </figure>
-            </div>
+            
+        
+         
+      
+           
           </div>
         </div>
       </div>
@@ -237,7 +229,7 @@
   width: 50%;
   text-align: justify;
 }
-.alignAlbumInfo{
+.alignAlbumInfo {
   text-align: center;
 }
 .artistAlbums {
