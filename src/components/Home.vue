@@ -1,366 +1,464 @@
 <template>
-  <div class="md-layout md-alignment-space-between md-gutter HomeContent">
-    <div class="md-layout-item md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100 viewport">
-      <md-toolbar :md-elevation="0">
-        <span class="md-title">New Albums</span>
-      </md-toolbar>
+  <div
+    class="md-layout md-size-100 md-layout-nowrap md-alignment-space-between-center md-gutter HomeContent"
+  >
+    <span class="md-layout-item md-size-100 md-display-1">New Album</span>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
 
-      <md-list class="md-double-line">
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
 
-        <md-divider></md-divider>
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
 
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-      </md-list>
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Album Name</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
     </div>
 
-    <div class="md-layout-item md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100 viewport">
-      <md-toolbar :md-elevation="0">
-        <span class="md-title">New Albums</span>
-      </md-toolbar>
+    <span class="md-layout-item md-size-100 md-display-1">Popular Songs</span>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
 
-      <md-list class="md-double-line">
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Song</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
 
-        <md-divider></md-divider>
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
 
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-      </md-list>
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Song</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Song</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Song</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Song</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
     </div>
 
-    <div class="md-layout-item md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100 viewport">
-      <md-toolbar :md-elevation="0">
-        <span class="md-title">New Albums</span>
-      </md-toolbar>
+    <span class="md-layout-item md-size-100 md-display-1">Video</span>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
 
-      <md-list class="md-double-line">
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Clip</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
 
-        <md-divider></md-divider>
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
 
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-      </md-list>
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
     </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
 
-    <div class="md-layout-item md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100 viewport">
-      <md-toolbar :md-elevation="0">
-        <span class="md-title">New Albums</span>
-      </md-toolbar>
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Clip</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
 
-      <md-list class="md-double-line">
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
 
-        <md-divider></md-divider>
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
 
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-          <figure class="cardDisplay">
-            <figcaption>Album Name
-              <br>Year
-            </figcaption>
-            <img src="https://dummyimage.com/100x100/000/fff" alt srcset>
-          </figure>
-        </md-list-item>
-      </md-list>
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
     </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
 
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Clip</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Clip</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
+    <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-size-100 md-medium-50">
+      <md-card class="md-layout md-size-100">
+        <md-card-media class="md-layout-item md-size-40">
+          <img src="https://dummyimage.com/100x100/000/fff" alt="Album">
+        </md-card-media>
+
+        <md-card-header class="md-layout-item">
+          <div class="md-title">Clip</div>
+          <div class="md-subhead">Artist Name</div>
+        </md-card-header>
+
+        <md-card-expand class="md-layout-item md-size-100">
+          <md-card-actions md-alignment="left">
+            <div>
+              <md-button>
+                <md-icon>play_arrow</md-icon>
+              </md-button>
+            </div>
+
+            <md-card-expand-trigger>
+              <md-button>Learn more</md-button>
+            </md-card-expand-trigger>
+          </md-card-actions>
+
+          <md-card-expand-content>
+            <md-card-content>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.</md-card-content>
+          </md-card-expand-content>
+        </md-card-expand>
+      </md-card>
+    </div>
   </div>
 </template>
 
 <style>
-/*md-list-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}*/
-
-.cardDisplay {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-
-  align-items: center;
-}
-
-/*.HomeContent {
-  margin-top: 1%;
-  display: flex;
-  justify-content:space-evenly;
-  height:100vh;
-  overflow: hidden;
-  background:black;   
-}*/
-
-/*.viewport {
-  width: 320px;
-  max-width: 100%;
-  display: inline-block;
-  vertical-align: top;
-  overflow: auto;
-  border: 1px solid rgba(#000, 0.12);
-}*/
 </style>
