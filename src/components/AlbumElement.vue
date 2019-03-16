@@ -8,8 +8,22 @@
     </md-card-media>
 
     <md-card-header>
-      <div class="md-subheading">{{ album.title }}</div>
-      <div class="md-caption">{{ album.artist }}</div>
+      <md-card-header-text>
+        <div class="md-subheading">{{ album.title }}</div>
+        <div class="md-caption">{{ album.artist }}</div>
+      </md-card-header-text>
+
+      <md-menu md-size="big" md-direction="bottom-end">
+        <md-button class="md-icon-button" md-menu-trigger>
+          <md-icon>more_vert</md-icon>
+        </md-button>
+
+        <md-menu-content>
+          <md-menu-item @click="">
+            <span>Add to play list</span>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </md-card-header>
   </md-card>
 </template>
