@@ -8,6 +8,7 @@
 import AlbumElement from '@/components/AlbumElement';
 
 export default {
+  name: 'AlbumElementList',
   props: {
     albums: Array
   },
