@@ -1,11 +1,6 @@
 <template>
   <md-content>
-    <album-element img="/static/album-cover.png"></album-element>
-    <album-element></album-element>
-    <album-element></album-element>
-    <album-element></album-element>
-    <album-element></album-element>
-    <album-element></album-element>
+    <album-element v-for="album in albums" v-bind:key="album.id" v-bind:album="album" ></album-element>
   </md-content>
 </template>
 
@@ -13,6 +8,10 @@
 import AlbumElement from '@/components/AlbumElement';
 
 export default {
+  name: 'AlbumElementList',
+  props: {
+    albums: Array
+  },
   components: {
     'album-element': AlbumElement
   }

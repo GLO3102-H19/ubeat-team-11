@@ -1,7 +1,7 @@
 <template>
   <md-card md-with-hover>
     <md-card-media>
-        <img :src="album.img" alt="Album Cover">
+        <img src="/static/no-cover.jpg" alt="Album Cover">
         <md-button class="md-icon-button md-raised md-accent">
           <md-icon >play_arrow</md-icon>
         </md-button>
@@ -9,8 +9,8 @@
 
     <md-card-header>
       <md-card-header-text>
-        <div class="md-subheading">{{ album.title }}</div>
-        <div class="md-caption">{{ album.artist }}</div>
+        <div class="md-subheading">{{ playlist.title }}</div>
+        <div class="md-caption">Playlist</div>
       </md-card-header-text>
 
       <md-menu md-size="big" md-direction="bottom-end">
@@ -20,7 +20,7 @@
 
         <md-menu-content>
           <md-menu-item @click="">
-            <span>Add to play list</span>
+            <span>Delete playlist</span>
           </md-menu-item>
         </md-menu-content>
       </md-menu>
@@ -30,16 +30,14 @@
 
 <script>
 export default {
-  name: 'AlbumElement',
+  name: 'PlaylistElement',
   props: {
-    album: {
+    playlist: {
       type: Object,
-      required: false,
+      required: true,
       default: () => ({
         id: 0,
-        img: '/static/no-cover.jpg',
-        title: 'Unknown',
-        artist: 'Unknown'
+        title: 'Unknown'
       })
     }
   }
