@@ -32,175 +32,9 @@
         <div class="md-layout-item md-xlarge-size-100 md-large-size-100">
           <div class="md-layout md-alignment-space-around-center">
             <div class="md-layout-item md-xlarge-size-75 md-large-size-75">
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >1</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 1</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:47</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
 
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >2</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 2</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
 
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >3</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 3</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">1:47</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >4</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 4</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >5</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 5</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >6</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 6</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >7</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 7</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >8</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 8</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >9</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 9</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >10</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 10</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >11</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 11</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >12</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 12</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <span
-                  class="md-layout-item md-xsmall-hide md-small-size-hide md-medium-hide md-body-1"
-                >13</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Song 13</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">2:45</span>
-                <div class="md-layout-item">
-                  <md-button>
-                    <md-icon class="arrowColor">play_arrow</md-icon>
-                  </md-button>
-                </div>
-              </div>
-            </div>
+        </div>
           </div>
         </div>
       </div>
@@ -208,10 +42,32 @@
   </div>
 </template>
 
+
 <script>
-export default {
-  name: 'Album'
-};
+
+  import AlbumElement from '../components/AlbumElement';
+  import SongElement from '../components/SongElementList';
+
+  export default {
+    name: 'Album',
+    components: {
+      'album-element': AlbumElement,
+      'song-element': SongElement
+    },
+
+    data() {
+      return {
+        primaryGenreName: '',
+        artworkUrl100: '',
+        listTracks: []
+      };
+    },
+    computed: {
+      icon() {
+        return this.artworkUrl100;
+      },
+    },
+  };
 </script>
 
 

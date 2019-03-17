@@ -1,9 +1,9 @@
 <template>
      <md-table-row slot="md-table-row" slot-scope="{ song }">
-        <md-table-cell md-label="TrackName" md-sort-by="name">{{ song.trackName }}</md-table-cell>
-        <md-table-cell md-label="Time" md-sort-by="time">{{ song.time }}</md-table-cell>
-        <md-table-cell md-label="Url"> 
-            <md-button class="md-icon-button" :href="song.url">
+        <md-table-cell md-label="TrackName" md-sort-by="name">{{ song.trackCensoredName }}</md-table-cell>
+        <md-table-cell md-label="Time" md-sort-by="time">{{ song.trackTimeMillis }}</md-table-cell>
+        <md-table-cell md-label="Url">
+            <md-button class="md-icon-button" :href="song.previewUrl">
                      <md-icon class="arrowColor">play_arrow</md-icon>
             </md-button>
         </md-table-cell>
@@ -11,21 +11,21 @@
 </template>
 <script>
 export default {
- name: 'SongElement',
+  name: 'SongElement',
   props: {
     song: {
       type: Object,
-      required: true,
+      required: false,
       default: () => ({
-        trackId: -1,
-        trackName: 'Unknown',
-        time: 'Unknown',
-        url: 'Unknown'
+        trackId: 0,
+        trackCensoredName: 'Unknown',
+        trackTimeMillis: 'Unknown',
+        previewUrl: 'Unknown'
       })
     }
   }
 };
-}
+
 </script>
 <style>
 
