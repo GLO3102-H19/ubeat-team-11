@@ -7,6 +7,9 @@
                      <md-icon class="arrowColor">play_arrow</md-icon>
             </md-button>
         </md-table-cell>
+        <md-table-cell class="md-icon-button" md-menu-trigger>
+          <md-icon>more_vert</md-icon>
+        </md-table-cell>
       </md-table-row>
 </template>
 <script>

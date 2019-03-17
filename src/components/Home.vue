@@ -10,6 +10,7 @@
 <script>
 import AlbumElementList from '@/components/AlbumElementList';
 import PlaylistElementList from '@/components/PlaylistElementList';
+import axios from 'axios';
 
 export default {
   components: {
@@ -17,31 +18,15 @@ export default {
     'playlist-element-list': PlaylistElementList
   },
   data: () => ({
-    newAlbums: [
-      {
-        id: 1,
-        img: '/static/album-cover.png',
-        title: 'Papillon',
-        artist: 'Island'
-      },
-      {
-        id: 2,
-        img: '/static/album-cover.png',
-        title: 'Test2',
-        artist: 'Joe Louis'
-      }
-    ],
-    newPlaylist: [
-      {
-        id: 1,
-        title: 'Test'
-      },
-      {
-        id: 2,
-        title: 'Test2'
-      }
-    ]
-  })
+    newAlbums: null,
+    newPlaylist: null
+  }),
+  mounted() {
+    axios
+      .get('http://ubeat.herokuapp.com/unsecure/search/albums?q=metallica')
+      .then(response => (this.newAlbums = response.data.results))
+      .catch(error => console.log(error));
+  }
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <md-card md-with-hover>
     <md-card-media>
-        <img :src="album.img" alt="Album Cover">
+        <img :src="album.artworkUrl100" alt="Album Cover">
         <md-button class="md-icon-button md-raised md-accent">
           <md-icon >play_arrow</md-icon>
         </md-button>
@@ -9,8 +9,8 @@
 
     <md-card-header>
       <md-card-header-text>
-        <div class="md-subheading">{{ album.title }}</div>
-        <div class="md-caption">{{ album.artist }}</div>
+        <div class="md-subheading">{{ album.collectionName }}</div>
+        <div class="md-caption">{{ album.artistName }}</div>
       </md-card-header-text>
 
       <md-menu md-size="big" md-direction="bottom-end">
@@ -34,13 +34,7 @@ export default {
   props: {
     album: {
       type: Object,
-      required: false,
-      default: () => ({
-        id: 0,
-        img: '/static/no-cover.jpg',
-        title: 'Unknown',
-        artist: 'Unknown'
-      })
+      required: true
     }
   }
 };
