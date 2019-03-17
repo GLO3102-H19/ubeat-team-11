@@ -1,14 +1,13 @@
 <template>
   <md-content>
     <playlist-element v-for="playlist in playlists" v-bind:key="playlist.id" v-bind:playlist="playlist" ></playlist-element>
-    <md-button class="md-fab md-primary">
-        <md-icon>add</md-icon>
-    </md-button>
+        <play-list-dialog-create></play-list-dialog-create>
   </md-content>
 </template>
 
 <script>
 import PlaylistElement from '@/components/PlaylistElement';
+import PlaylistDialogCreate from '@/components/PlaylistDialogCreate';
 
 export default {
   name: 'PlaylistElementList',
@@ -16,7 +15,8 @@ export default {
     playlists: Array
   },
   components: {
-    'playlist-element': PlaylistElement
+    'playlist-element': PlaylistElement,
+    'play-list-dialog-create': PlaylistDialogCreate
   }
 };
 </script>

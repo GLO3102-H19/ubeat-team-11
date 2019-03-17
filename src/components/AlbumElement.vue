@@ -42,7 +42,7 @@ export default {
         artworkUrl100: 'Unknown',
       }),
     },
-  },
+  }
 };
 </script>
 
