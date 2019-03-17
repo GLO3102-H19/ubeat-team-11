@@ -33,7 +33,7 @@ export async function getTracks(idAlbum) {
   const urlTracks = `${url}/albums/${idAlbum}/tracks`;
   const response = await fetch(urlTracks);
   const json = await response.json();
-  console.log(json.results[2].trackTimeMillis);
+  console.log(json.results[0]);
   return {
     tracks: json.results.map(track => ({
       trackNumber: track.trackNumber,
