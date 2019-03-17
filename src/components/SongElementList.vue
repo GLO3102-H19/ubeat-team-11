@@ -4,8 +4,8 @@
         <h1 class="md-title">Songs</h1>
       </md-table-toolbar>
          <md-table-row>
-        <md-table-head>{{title}}</md-table-head>
-        <md-table-head>{{time}}</md-table-head>
+        <md-table-head>Title</md-table-head>
+        <md-table-head>Time</md-table-head>
        
       </md-table-row>
       <song-element v-for="song in songs" v-bind:key="song.trackId" v-bind:song="song"></song-element>
@@ -17,12 +17,6 @@ import SongELement from '@/components/SongElement';
 export default {
   props: {
     songs: Array,
-  },
-  data() {
-    return {
-      title: 'Title',
-      time: 'Time'
-    };
   },
   components: {
     'song-element': SongELement
