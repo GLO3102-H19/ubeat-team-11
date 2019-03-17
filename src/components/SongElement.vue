@@ -36,6 +36,10 @@ export default {
         previewUrl: 'Unknown'
       })
     }
+  },
+  methods: {
+    playMusic: () => {
+    }
   }
 };
 

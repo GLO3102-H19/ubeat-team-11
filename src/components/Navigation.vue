@@ -35,7 +35,7 @@
 </template>
 <script>
 export default {
-  name: 'nav',
+  name: 'navigation',
   data: () => ({
     selectSong: null,
     songs: ['Alpha', 'Beta', 'Charlie', 'Delta', 'Echo'],
