@@ -1,248 +1,63 @@
 <template>
   <div class="md-layout">
-    <div class="md-layout-item md-size-100">
-      <md-card>
-        <md-card-media-cover class="md-layout">
-          <md-card-media class="md-layout-item" md-ratio="16/9" md-medium="true" md-big="true">
-            <img src="https://dummyimage.com/600x200/878787/c2c2c2" alt="artistPic">
-          </md-card-media>
-          <md-card-area
-            class="md-layout-item md-medium-size-100 md-small-size-100 md-xsmall-size-100"
-          >
-            <md-card-header>
-              <span class="md-title">Name of the Artist</span>
-              <span class="md-subhead">Desscription</span>
-            </md-card-header>
 
-            <md-card-content
-              class="artistDesctiptionFormat"
-            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. In quod, cum eum beatae aperiam nobis laudantium necessitatibus perferendis, laboriosam natus dignissimos reprehenderit suscipit deserunt eos eligendi, perspiciatis molestiae sit minima.</md-card-content>
-            <md-card-actions md-alignment="left">
-              <md-button class="md-icon-button">
-                <md-icon class="md-size-2x">play_arrow</md-icon>
-              </md-button>
-            </md-card-actions>
-          </md-card-area>
-        </md-card-media-cover>
-      </md-card>
-    </div>
+    <md-content class="md-layout-item md-size-100">
+      <div class="md-layout md-alignment-left">
 
-    <div class="md-layout-item md-size-100">
-      <div class="md-layout md-gutter">
-        <span class="md-headline md-layout-item md-size-100">Popular Songs</span>
+        <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
+          <h1 class="md-display-1">Artist: {{name}} </h1>
+          <h1 class="md-display-1">Genre: {{genre}} </h1>
+        </div>
+        <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
+          <md-button :href="artistItunes">
+            <md-icon >insert_link</md-icon>
+          </md-button>
 
-        <div class="md-layout-item md-xlarge-size-100 md-large-size-100">
-          <div class="md-layout md-alignment-space-around-center">
-            <div class="md-layout-item md-xlarge-size-75 md-large-size-75">
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-              <div class="md-layout md-xsmall-size-100 md-small-size-100 md-gutter">
-                <div class="md-layout-item">
-                  <img src="https://dummyimage.com/32x32/4558ff/000000.jpg" alt="Album Pics">
-                </div>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Title</span>
-                <span class="md-layout-item md-xsmall-size-50 md-small-size-50 md-body-1">Album Name</span>
-                <span class="md-layout-item md-xsmall-hide md-small-hide md-body-1">Time</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </md-content>
 
-    <div class="md-layout-item md-size-100">
-      <div class="md-layout md-gutter">
-        <span class="md-headline md-layout-item md-size-100">Albums</span>
-        <div class="md-layout-item md-size-100">
-          <div class="md-layout md-gutter md-size-100">
-            <div
-              class="md-layout-item md-gutter md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around"
-            >
-              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
-                <md-card-media class="md-layout-item md-size-100">
-                  <md-ripple>
-                    <img
-                      src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                      alt="People"
-                    >
-                  </md-ripple>
-                </md-card-media>
-                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
-                  <div class="md-title">Album</div>
-                  <div class="md-subhead">Year</div>
-                </md-card-header>
-              </md-card>
-            </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around"
-            >
-              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
-                <md-card-media class="md-layout-item md-size-100">
-                  <md-ripple>
-                    <img
-                      src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                      alt="People"
-                    >
-                  </md-ripple>
-                </md-card-media>
-                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
-                  <div class="md-title">Album</div>
-                  <div class="md-subhead">Year</div>
-                </md-card-header>
-              </md-card>
-            </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around"
-            >
-              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
-                <md-card-media class="md-layout-item md-size-100">
-                  <md-ripple>
-                    <img
-                      src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                      alt="People"
-                    >
-                  </md-ripple>
-                </md-card-media>
-                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
-                  <div class="md-title">Album</div>
-                  <div class="md-subhead">Year</div>
-                </md-card-header>
-              </md-card>
-            </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around"
-            >
-              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
-                <md-card-media class="md-layout-item md-size-100">
-                  <md-ripple>
-                    <img
-                      src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                      alt="People"
-                    >
-                  </md-ripple>
-                </md-card-media>
-                <md-card-header class="md-layout-item md-size-100 md-medium-size-100">
-                  <div class="md-title">Album</div>
-                  <div class="md-subhead">Year</div>
-                </md-card-header>
-              </md-card>
-            </div>
-            <div
-              class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-50 md-small-size-100 md-xsmall-100 md-alignment-space-around-space-around"
-            >
-              <md-card class="md-layout md-small-size-50 md-xsmall-size-50 md-medium-size-50">
-                <md-card-media class="md-layout-item md-size-100 md-xsmall-100 md-medium-size-100">
-                  <md-ripple>
-                    <img
-                      src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album"
-                      alt="People"
-                    >
-                  </md-ripple>
-                </md-card-media>
-                <md-card-header class="md-layout-item md-size-100 md-xsmall-100 md-medium-size-100">
-                  <div class="md-title">Album</div>
-                  <div class="md-subhead">Year</div>
-                </md-card-header>
-              </md-card>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <h1 class="md-display-1">Albums</h1>
+    <album-element-list v-bind:albums="albumArtist"></album-element-list>
+
+
+
   </div>
+
 </template>
+
+<script>
+
+  import AlbumElementList from '@/components/AlbumElementList';
+  import * as api from '../api';
+
+  export default {
+    components: {
+      'album-element-list': AlbumElementList,
+    },
+    data: () => ({
+      id: 0,
+      albumArtist: [],
+      name: '',
+      artistItunes: '',
+      genre: '',
+    }),
+    async  mounted() {
+      this.id = this.$route.params.artistId;
+      const listAlbums = await api.getArtistAlbums(this.id);
+      const { artistName, artistLinkUrl, primaryGenreName } = await api.getArtist(this.id);
+      this.name = artistName;
+      this.artistItunes = artistLinkUrl;
+      this.genre = primaryGenreName;
+      this.albumArtist = listAlbums.albumArtists;
+    }
+
+  };
+
+</script>
 
 
 <style>
-.artistDesctiptionFormat {
-  width: 50%;
-  text-align: justify;
-}
+
 
 </style>

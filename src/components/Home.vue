@@ -4,24 +4,31 @@
     <playlist-element-list v-bind:playlists="newPlaylist"></playlist-element-list>
     <h1 class="md-display-1">Albums</h1>
     <album-element-list v-bind:albums="newAlbums"></album-element-list>
+    <h1 class="md-display-1">Artists:</h1>
+    <artist-element-list v-bind:artists="listArtists"></artist-element-list>
   </main>
 </template>
 
 <script>
 import AlbumElementList from '@/components/AlbumElementList';
 import PlaylistElementList from '@/components/PlaylistElementList';
+import ArtistElementList from '@/components/ArtistElementList';
 import axios from 'axios';
+import * as api from '../api';
 
 export default {
   components: {
     'album-element-list': AlbumElementList,
-    'playlist-element-list': PlaylistElementList
+    'playlist-element-list': PlaylistElementList,
+    'artist-element-list': ArtistElementList
   },
   data: () => ({
     newAlbums: [],
-    newPlaylist: []
+    newPlaylist: [],
+    listArtists: [],
+
   }),
-  mounted() {
+  async mounted() {
     axios
       .get('http://ubeat.herokuapp.com/unsecure/search/albums?q=metallica')
       .then(response => (
@@ -33,6 +40,9 @@ export default {
         }))
       ))
       .catch(error => console.log(error));
+
+    const artisSerchead = await api.getArtistSearched('Metallica');
+    this.listArtists = artisSerchead;
   }
 };
 </script>
