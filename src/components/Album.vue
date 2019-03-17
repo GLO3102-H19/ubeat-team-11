@@ -4,37 +4,25 @@
       <div class="md-layout md-alignment-center-left">
         <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
           <figure>
-            <img src="https://dummyimage.com/200x200/4558ff/000000.jpg&text=Album" alt="Album">
-            <figcaption class="md-layout md-alignment-center-center">
-              <span class="md-subhead md-layout-item md-size-25">Album Name</span>
-              <md-button class="md-layout-item md-size-50">
-                <md-icon class="buttonShuffle">shuffle</md-icon>
-              </md-button>
-            </figcaption>
+            <img class="imageAlbum" :src="artworkUrl100" alt="Album">
           </figure>
         </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            In quod, cum eum beatae aperiam nobis laudantium necessitatibus
-            perferendis,
-            laboriosam natus dignissimos reprehenderit suscipit deserunt eos eligendi,
-            perspiciatis molestiae sit minima.
-          </p>
-        </div>
+          <p> Genre: {{genre}}            </p>
+          <p> Date:  {{date}}             </p>
+          <p> Album: {{collectionName}}   </p>
+          <p>        {{copyright}}        </p>
+    </div>
       </div>
     </md-content>
 
     <div class="md-layout-item md-size-100">
       <div class="md-layout md-gutter">
-        <span class="md-headline md-layout-item md-size-100">Songs</span>
-
         <div class="md-layout-item md-xlarge-size-100 md-large-size-100">
           <div class="md-layout md-alignment-space-around-center">
             <div class="md-layout-item md-xlarge-size-75 md-large-size-75">
-
-
-        </div>
+              <song-element-list v-bind:songs="listTracks"></song-element-list>
+             </div>
           </div>
         </div>
       </div>
@@ -42,31 +30,51 @@
   </div>
 </template>
 
-
 <script>
-
+  import * as api from '../api';
   import AlbumElement from '../components/AlbumElement';
-  import SongElement from '../components/SongElementList';
+  import SongElementList from '../components/SongElementList';
 
   export default {
     name: 'Album',
     components: {
       'album-element': AlbumElement,
-      'song-element': SongElement
+      'song-element-list': SongElementList
     },
 
     data() {
       return {
-        primaryGenreName: '',
+        genre: '',
+        artistName: '',
         artworkUrl100: '',
-        listTracks: []
+        collectionName: '',
+        copyright: '',
+        date: '',
+        listTracks: [],
       };
+    },
+
+    async  mounted() {
+      const { artistName, collectionName, artworkUrl100 } = await api.getAlbum(1125488753);
+      const { releaseDate, primaryGenreName, copyright } = await api.getAlbum(1125488753);
+      const { artistLinkUrl } = await api.getArtist(3941697);
+      const trackTimeMillis = await api.getTracks(1125488753);
+      this.artistName = artistName;
+      this.date = releaseDate;
+      this.genre = primaryGenreName;
+      this.artworkUrl100 = artworkUrl100;
+      this.copyright = copyright;
+      this.collectionName = collectionName;
+      this.artistLinkUrl = artistLinkUrl;
+      this.listTracks = trackTimeMillis.tracks;
     },
     computed: {
       icon() {
         return this.artworkUrl100;
       },
     },
+
+
   };
 </script>
 
@@ -75,4 +83,6 @@
 .arrowColor {
   color: red !important;
 }
+
+
 </style>

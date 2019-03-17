@@ -1,3 +1,5 @@
+import millisToMinutesAndSeconds from '@/utility';
+
 const url = 'http://ubeat.herokuapp.com/unsecure';
 
 export async function getAlbum(idAlbum) {
@@ -10,6 +12,8 @@ export async function getAlbum(idAlbum) {
     primaryGenreName: json.results[0].primaryGenreName,
     collectionName: json.results[0].collectionName,
     artworkUrl100: json.results[0].artworkUrl100,
+    releaseDate: json.results[0].releaseDate,
+    copyright: json.results[0].copyright,
 
   };
 }
@@ -33,12 +37,12 @@ export async function getTracks(idAlbum) {
   const urlTracks = `${url}/albums/${idAlbum}/tracks`;
   const response = await fetch(urlTracks);
   const json = await response.json();
-  console.log(json.results[2].trackTimeMillis);
+  console.log(json);
   return {
     tracks: json.results.map(track => ({
-      trackNumber: track.trackNumber,
+      trackId: track.trackId,
       trackCensoredName: track.trackCensoredName,
-      trackTimeMillis: track.trackTimeMillis,
+      trackTimeMillis: millisToMinutesAndSeconds(track.trackTimeMillis),
       previewUrl: track.previewUrl,
     }))
 
