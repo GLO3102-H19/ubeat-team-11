@@ -1,17 +1,21 @@
 <template>
-  <div>
+   <div>
     <md-dialog :md-active.sync="showDialog">
       <md-dialog-title>Create a Playlist</md-dialog-title>
-  
-     
-      <md-progress-bar md-mode="indeterminate" v-if="sending" />
+
+      <md-field :class="{ 'md-invalid': error }">
+      <label>Title</label>
+      <md-input v-model="required" required></md-input>
+      <span class="md-error" :v-if="error">the Title is required</span>
+    </md-field>
 
       <md-dialog-actions>
-        <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-        <md-button class="md-primary" type="submit" @click="showDialog = false">Save</md-button>
+        <md-button class="md-primary" @click="close()">Close</md-button>
+        <md-button class="md-primary" @click="validation()">Save</md-button>
       </md-dialog-actions>
-
     </md-dialog>
+
+    <md-button class="md-fab md-primary" @click="showDialog = true"><md-icon>add</md-icon></md-button>
   </div>
 </template>
 
@@ -21,10 +25,27 @@
 export default {
    name: 'PlaylistDialogCreate',
    data: () => ({
-     name: '',
+     required: '',
      showDialog: false,
-     sending: false
-   })
+     error: false
+
+   }),
+   methods: {
+     validation() {
+       if (!this.required) {
+         this.error = true;
+       } else {
+         console.log('Hurray');
+         this.required = '';
+         this.showDialog = false;
+       }
+     },
+     close() {
+       this.required = '';
+       this.showDialog = false;
+       this.error = false;
+     }
+   }
 };
 </script>
 
