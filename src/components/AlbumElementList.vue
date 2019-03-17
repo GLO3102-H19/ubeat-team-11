@@ -1,6 +1,6 @@
 <template>
   <md-content>
-    <album-element v-for="album in albums" v-bind:key="album.id" v-bind:album="album" ></album-element>
+    <album-element v-for="album in albums" v-bind:key="album.collectionId" v-bind:album="album" ></album-element>
   </md-content>
 </template>
 
