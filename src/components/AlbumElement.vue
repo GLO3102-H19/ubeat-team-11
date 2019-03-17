@@ -2,8 +2,8 @@
   <md-card md-with-hover>
     <md-card-media>
         <img :src="album.artworkUrl100" alt="Album Cover">
-        <md-button class="md-icon-button md-raised md-accent">
-          <md-icon >play_arrow</md-icon>
+        <md-button class="md-icon-button md-raised md-accent" :to="{ name: 'Album', params: { collectionId: this.album.collectionId } }">
+          <md-icon> play_arrow</md-icon>
         </md-button>
     </md-card-media>
 
@@ -34,9 +34,15 @@ export default {
   props: {
     album: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+      default: () => ({
+        collectionId: 0,
+        collectionName: 'Unknown',
+        artistName: 'Unknown',
+        artworkUrl100: 'Unknown',
+      }),
+    },
+  },
 };
 </script>
 

@@ -37,7 +37,7 @@ export async function getTracks(idAlbum) {
   const json = await response.json();
   return {
     tracks: json.results.map(track => ({
-      trackNumber: track.trackNumber,
+      trackId: track.trackId,
       trackCensoredName: track.trackCensoredName,
       trackTimeMillis: millisToMinutesAndSeconds(track.trackTimeMillis),
       previewUrl: track.previewUrl,

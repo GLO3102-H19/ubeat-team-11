@@ -18,13 +18,20 @@ export default {
     'playlist-element-list': PlaylistElementList
   },
   data: () => ({
-    newAlbums: null,
-    newPlaylist: null
+    newAlbums: [],
+    newPlaylist: []
   }),
   mounted() {
     axios
       .get('http://ubeat.herokuapp.com/unsecure/search/albums?q=metallica')
-      .then(response => (this.newAlbums = response.data.results))
+      .then(response => (
+        this.newAlbums = response.data.results.map(item => ({
+          collectionId: item.collectionId,
+          collectionName: item.collectionName,
+          artistName: item.artistName,
+          artworkUrl100: item.artworkUrl100
+        }))
+      ))
       .catch(error => console.log(error));
   }
 };

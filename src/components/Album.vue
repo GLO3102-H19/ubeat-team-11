@@ -42,16 +42,17 @@
   import * as api from '../api';
   import AlbumElement from '../components/AlbumElement';
   import SongElementList from '../components/SongElementList';
-
+  import Router from '../router';
+  
   export default {
     name: 'Album',
     components: {
       'album-element': AlbumElement,
       'song-element-list': SongElementList
     },
-
     data() {
       return {
+        id: 0,
         genre: '',
         artistName: '',
         artworkUrl100: '',
@@ -62,13 +63,13 @@
         listTracks: [],
       };
     },
-
     async  mounted() {
-      const { artistName, collectionName, artworkUrl100 } = await api.getAlbum(1125488753);
-      const { releaseDate, primaryGenreName, copyright } = await api.getAlbum(1125488753);
-      const { collectionViewUrl } = await api.getAlbum(1125488753);
+      this.id = this.$route.params.collectionId;
+      const { artistName, collectionName, artworkUrl100 } = await api.getAlbum(this.id);
+      const { releaseDate, primaryGenreName, copyright } = await api.getAlbum(this.id);
+      const { collectionViewUrl } = await api.getAlbum(this.id);
       const { artistLinkUrl } = await api.getArtist(3941697);
-      const trackTimeMillis = await api.getTracks(1125488753);
+      const trackTimeMillis = await api.getTracks(this.id);
       this.artistName = artistName;
       this.date = releaseDate;
       this.genre = primaryGenreName;
@@ -84,7 +85,11 @@
         return this.artworkUrl100;
       },
     },
-
+    methods: {
+      navigate() {
+        Router.go(-1);
+      }
+    }
 
   };
 </script>
@@ -94,6 +99,4 @@
 .arrowColor {
   color: red !important;
 }
-
-
 </style>

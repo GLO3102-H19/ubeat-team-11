@@ -18,9 +18,9 @@ export default new Router({
       name: 'Artist',
       component: Artist
     }, {
-      path: '/album',
+      path: '/album/:collectionId',
       name: 'Album',
-      component: Album
+      component: Album,
     }, {
       path: '/playlist',
       name: 'Playlist',
