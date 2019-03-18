@@ -41,13 +41,16 @@ export default {
       ))
       .catch(error => console.log(error));
 
-    const artisSerchead = await api.getArtistSearched('Metallica');
-    this.listArtists = artisSerchead;
+    const artistSearched = await api.getArtistSearched('Metallica');
+    this.listArtists = artistSearched;
   }
 };
 </script>
 
 
 <style scoped>
+  main {
+    padding: 2rem 4rem;
+  }
 </style>
 
