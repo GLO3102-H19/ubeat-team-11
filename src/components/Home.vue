@@ -13,7 +13,7 @@
 import AlbumElementList from '@/components/AlbumElementList';
 import PlaylistElementList from '@/components/PlaylistElementList';
 import ArtistElementList from '@/components/ArtistElementList';
-import axios from 'axios';
+import Axios from 'axios';
 import * as api from '../api';
 
 export default {
@@ -28,7 +28,7 @@ export default {
     listArtists: [],
   }),
   async mounted() {
-    axios
+    Axios
       .get('http://ubeat.herokuapp.com/unsecure/search/albums?q=metallica')
       .then(response => (
         this.newAlbums = response.data.results.map(item => ({

@@ -7,8 +7,10 @@ import router from './router';
 import VueMaterial from '../node_modules/vue-material';
 import '../node_modules/vue-material/dist/vue-material.css';
 import '../node_modules/vue-material/dist/theme/default.css';
+import axios from '../node_modules/axios';
 
 Vue.use(VueMaterial);
+Vue.use(axios);
 
 Vue.config.productionTip = false;
 

@@ -36,12 +36,7 @@ export default {
   props: {
     playlist: {
       type: Object,
-      required: true,
-      default: () => ({
-        id: 0,
-        name: 'Unknown',
-        tracks: []
-      })
+      required: true
     }
   }
 };
