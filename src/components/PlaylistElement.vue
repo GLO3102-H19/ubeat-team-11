@@ -37,7 +37,8 @@ export default {
       required: true,
       default: () => ({
         id: 0,
-        title: 'Unknown'
+        name: 'Unknown',
+        tracks: []
       })
     }
   }
