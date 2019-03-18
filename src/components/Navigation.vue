@@ -17,15 +17,10 @@
       </md-autocomplete>
 
       <div class="md-layout-item md-toolbar-section-end">
-      
         <md-button v-for="item in navElement" :key="item.key" :to="item.routing" class="md-medium-hide md-small-hide md-xsmall-hide">{{item.navItem}}</md-button>    
-        </md-button>
-
         <md-button v-for="item in navElement" :key="item.key" :to="item.routing" class="md-medium-hide md-large-hide md-xlarge-hide showIcon">
           <md-icon>{{item.icon}}</md-icon>
-          
         </md-button>
-
         <md-button class="md-medium-hide md-large-hide md-xlarge-hide showIcon">
           <md-icon>search</md-icon>
         </md-button>
@@ -33,6 +28,7 @@
     </div>
   </md-toolbar>
 </template>
+
 <script>
 export default {
   name: 'navigation',
@@ -40,10 +36,7 @@ export default {
     selectSong: null,
     songs: ['Alpha', 'Beta', 'Charlie', 'Delta', 'Echo'],
     navElement: [
-      { navItem: 'Sign in', icon: 'how_to_reg', routing: '/signin' },
-      { navItem: 'Log In', icon: 'account_box', routing: '/login' },
-      { navItem: 'Artiste', icon: 'recent_actors', routing: '/artist' },
-      { navItem: 'Album', icon: 'library_music', routing: '/album' }
+      { navItem: 'Log In', icon: 'account_box', routing: '/login' }
     ]
   })
 };
