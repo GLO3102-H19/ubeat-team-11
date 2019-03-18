@@ -29,13 +29,14 @@ import * as api from '../api';
 export default {
   name: 'PlaylistElementList',
   props: {
-    playlists: Array
+    playliststemps: Array
   },
   data: () => ({
     required: '',
     showDialog: false,
     error: false,
-    output: {}
+    output: {},
+    playlists: []
   }),
   components: {
     'playlist-element': PlaylistElement,
@@ -47,10 +48,15 @@ export default {
         this.error = true;
       } else {
         this.output = await api.createPlayList(this.required, 'tommy@ubeat.ca');
-        console.log(this.output);
         this.playlists.push(this.output);
         this.required = '';
         this.showDialog = false;
+        const item = {
+          id: this.output.id,
+          name: this.output.name,
+          tracks: this.output.tracks
+        };
+        console.log(item);
       }
     },
     close() {

@@ -77,6 +77,5 @@ export function createPlayList(dataName, dataOwner) {
   .then(response => (
     { id: response.data.id, name: response.data.name, tracks: response.data.tracks }
     ));
-  console.log(result);
   return result;
 }
