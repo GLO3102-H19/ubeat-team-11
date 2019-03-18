@@ -1,12 +1,12 @@
 <template>
-  <main>
+  <div>
     <h1 class="md-display-1">Play List</h1>
     <playlist-element-list v-bind:playlists="newPlaylist"></playlist-element-list>
     <h1 class="md-display-1">Albums</h1>
     <album-element-list v-bind:albums="newAlbums"></album-element-list>
     <h1 class="md-display-1">Artists:</h1>
     <artist-element-list v-bind:artists="listArtists"></artist-element-list>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -26,7 +26,6 @@ export default {
     newAlbums: [],
     newPlaylist: [],
     listArtists: [],
-
   }),
   async mounted() {
     axios
