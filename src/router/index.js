@@ -23,7 +23,7 @@ export default new Router({
       name: 'Album',
       component: Album,
     }, {
-      path: '/playlist',
+      path: '/playlist/:id',
       name: 'Playlist',
       component: Playlist
     }, {

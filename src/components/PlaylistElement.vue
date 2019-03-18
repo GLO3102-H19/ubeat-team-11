@@ -1,5 +1,6 @@
 <template>
   <md-card md-with-hover>
+    <router-link :to="{ name: 'Playlist', params: { id: this.playlist.id } }">
     <md-card-media>
         <img src="/static/no-cover.jpg" alt="Album Cover">
         <md-button class="md-icon-button md-raised md-accent">
@@ -25,6 +26,7 @@
         </md-menu-content>
       </md-menu>
     </md-card-header>
+  </router-link>
   </md-card>
 </template>
 
