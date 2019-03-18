@@ -42,7 +42,8 @@
   import * as api from '../api';
   import AlbumElement from '../components/AlbumElement';
   import SongElementList from '../components/SongElementList';
-
+  import Router from '../router';
+  
   export default {
     name: 'Album',
     components: {
@@ -67,6 +68,7 @@
       const { artistName, collectionName, artworkUrl100 } = await api.getAlbum(this.id);
       const { releaseDate, primaryGenreName, copyright } = await api.getAlbum(this.id);
       const { collectionViewUrl } = await api.getAlbum(this.id);
+      const { artistLinkUrl } = await api.getArtist(3941697);
       const trackTimeMillis = await api.getTracks(this.id);
       this.artistName = artistName;
       this.date = releaseDate;
@@ -75,12 +77,18 @@
       this.artworkUrl100 = artworkUrl100;
       this.copyright = copyright;
       this.collectionName = collectionName;
+      this.artistLinkUrl = artistLinkUrl;
       this.listTracks = trackTimeMillis.tracks;
     },
     computed: {
       icon() {
         return this.artworkUrl100;
       },
+    },
+    methods: {
+      navigate() {
+        Router.go(-1);
+      }
     }
 
   };
