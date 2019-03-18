@@ -49,5 +49,8 @@ export default {
 
 
 <style scoped>
+  main {
+    padding: 2rem 4rem;
+  }
 </style>
 
