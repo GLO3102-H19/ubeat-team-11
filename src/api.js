@@ -26,7 +26,6 @@ export async function getArtist(idArtist) {
     artistLinkUrl: json.results[0].artistLinkUrl,
     artistId: json.results[0].artistId,
     primaryGenreName: json.results[0].primaryGenreName,
-
   };
 }
 
@@ -44,5 +43,30 @@ export async function getTracks(idAlbum) {
     }))
 
   };
+}
+export async function getArtistAlbums(idArtist) {
+  const urlalbumsArtist = `${url}/artists/${idArtist}/albums`;
+  const response = await fetch(urlalbumsArtist);
+  const result = await response.json();
+  return {
+    albumArtists: result.results.map(item => ({
+      collectionId: item.collectionId,
+      artistName: item.artistName,
+      collectionName: item.collectionName,
+      artworkUrl100: item.artworkUrl100,
+    }))
+
+  };
+}
+
+export async function getArtistSearched(artist) {
+  const urlArtist = `${url}/search/artists?q=${artist}`;
+  const response = await fetch(urlArtist);
+  const result = await response.json();
+  return result.results.map(item => ({
+    artistId: item.artistId,
+    artistName: item.artistName,
+    primaryGenreName: item.primaryGenreName,
+  }));
 }
 

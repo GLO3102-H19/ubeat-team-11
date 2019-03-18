@@ -1,40 +1,36 @@
 <template>
- <md-card>
-      <md-card-header>
-        <md-card-header-text>
-          <div class="md-title">{{artist.artistName}}</div>
-        </md-card-header-text>
+  <md-card md-with-hover>
+    <md-card-header>
+        <div class="md-subheading">{{ artist.artistName }}</div>
+        <div class="md-caption">{{ artist.primaryGenreName }}</div>
 
-        <md-card-media>
-          <md-avatar class="md-avatar-icon md-large">
-            <md-icon>personne_outline</md-icon>
-          </md-avatar>
-        </md-card-media>
-      </md-card-header>
+    </md-card-header>
 
-      <md-card-actions>
-        <md-button @click="">Details</md-button>
-      </md-card-actions>
+    <md-card-action>
+        <md-button :to="{ name: 'Artist', params: { artistId: this.artist.artistId } }">Details</md-button>
+    </md-card-action>
     </md-card>
+
 </template>
+
 <script>
-export default {
-    name: 'ArtistElement',
-    props:{
+    export default {
+      name: 'ArtistElement.vue',
+      props: {
         artist: {
-            type: Object,
-            required: true,
-            defaut: () => ({
-                artistId: 0,
-                artistName: 'Unknown',
-                primaryGenreName: 'Unknown',
-                artistLinkUrl: 'Unknown'
-            })
-        }
-    }
-}
+          type: Object,
+          required: true,
+          default: () => ({
+            artistId: 0,
+            artistName: '',
+            primaryGenreName: '',
+          }),
+        },
+      },
+    };
+
 </script>
-<style>
+
+<style scoped>
 
 </style>
-
