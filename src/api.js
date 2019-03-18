@@ -1,3 +1,4 @@
+import axios from 'axios';
 import millisToMinutesAndSeconds from './utility';
 
 const url = 'http://ubeat.herokuapp.com/unsecure';
@@ -70,3 +71,12 @@ export async function getArtistSearched(artist) {
   }));
 }
 
+export function createPlayList(dataName, dataOwner) {
+  const result = axios
+  .post(`${url}/playlists`, { name: dataName, owner: dataOwner })
+  .then(response => (
+    { id: response.data.id, name: response.data.name, tracks: response.data.tracks }
+    ));
+  console.log(result);
+  return result;
+}

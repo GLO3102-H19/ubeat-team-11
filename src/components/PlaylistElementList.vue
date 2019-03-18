@@ -42,11 +42,11 @@ export default {
     // 'play-list-dialog-create': PlaylistDialogCreate
   },
   methods: {
-    validation() {
+    async validation() {
       if (!this.required) {
         this.error = true;
       } else {
-        console.log(api.createPlayList(this.required, 'tommy@ubeat.ca'));
+        this.output = await api.createPlayList(this.required, 'tommy@ubeat.ca');
         console.log(this.output);
         this.playlists.push(this.output);
         this.required = '';

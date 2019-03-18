@@ -9,7 +9,7 @@
 
     <md-card-header>
       <md-card-header-text>
-        <div class="md-subheading">{{ playlist.title }}</div>
+        <div class="md-subheading">{{ playlist.name }}</div>
         <div class="md-caption">Playlist</div>
       </md-card-header-text>
 
