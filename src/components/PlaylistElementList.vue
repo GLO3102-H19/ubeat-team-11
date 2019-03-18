@@ -1,69 +1,19 @@
 <template>
   <md-content>
     <playlist-element v-for="playlist in playlists" v-bind:key="playlist.id" v-bind:playlist="playlist" ></playlist-element>
-   
-    <md-dialog :md-active.sync="showDialog">
-      <md-dialog-title>Create a Playlist</md-dialog-title>
-
-      <md-field :class="{ 'md-invalid': error }">
-      <label>Title</label>
-      <md-input v-model="required" required></md-input>
-      <span class="md-error" :v-if="error">the Title is required</span>
-    </md-field>
-
-      <md-dialog-actions>
-        <md-button class="md-primary" @click="close()">Close</md-button>
-        <md-button class="md-primary" @click="validation()">Save</md-button>
-      </md-dialog-actions>
-    </md-dialog>
-
-    <md-button class="md-fab md-primary" @click="showDialog = true"><md-icon>add</md-icon></md-button>
   </md-content>
 </template>
 
 <script>
 import PlaylistElement from '@/components/PlaylistElement';
-import * as api from '../api';
-// import PlaylistDialogCreate from '@/components/PlaylistDialogCreate';
 
 export default {
   name: 'PlaylistElementList',
   props: {
-    playliststemps: Array
+    playlists: Array
   },
-  data: () => ({
-    required: '',
-    showDialog: false,
-    error: false,
-    output: {},
-    playlists: []
-  }),
   components: {
-    'playlist-element': PlaylistElement,
-    // 'play-list-dialog-create': PlaylistDialogCreate
-  },
-  methods: {
-    async validation() {
-      if (!this.required) {
-        this.error = true;
-      } else {
-        this.output = await api.createPlayList(this.required, 'tommy@ubeat.ca');
-        this.playlists.push(this.output);
-        this.required = '';
-        this.showDialog = false;
-        const item = {
-          id: this.output.id,
-          name: this.output.name,
-          tracks: this.output.tracks
-        };
-        console.log(item);
-      }
-    },
-    close() {
-      this.required = '';
-      this.showDialog = false;
-      this.error = false;
-    }
+    'playlist-element': PlaylistElement
   }
 };
 </script>
