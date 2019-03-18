@@ -41,8 +41,8 @@ export default {
       ))
       .catch(error => console.log(error));
 
-    const artisSerchead = await api.getArtistSearched('Metallica');
-    this.listArtists = artisSerchead;
+    const artistSearched = await api.getArtistSearched('Metallica');
+    this.listArtists = artistSearched;
   }
 };
 </script>
