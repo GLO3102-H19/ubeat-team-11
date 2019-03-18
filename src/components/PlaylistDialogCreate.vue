@@ -20,14 +20,15 @@
 </template>
 
 <script>
- 
+ import * as api from '../api';
 
 export default {
    name: 'PlaylistDialogCreate',
    data: () => ({
      required: '',
      showDialog: false,
-     error: false
+     error: false,
+     output: {}
 
    }),
    methods: {
@@ -35,7 +36,7 @@ export default {
        if (!this.required) {
          this.error = true;
        } else {
-         console.log('Hurray');
+         this.output = api.createPlayList(this.required, 'tommy@ubeat.ca');
          this.required = '';
          this.showDialog = false;
        }
