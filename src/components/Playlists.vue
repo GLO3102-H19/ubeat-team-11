@@ -1,7 +1,8 @@
 <template>
-  <md-app-content>
-    <p>Lorem Ipsum</p>
-  </md-app-content>
+  <main>
+    <h1 class="md-display-1">Play List</h1>
+    <playlist-element-list></playlist-element-list>
+  </main>
 </template>
 
 <script>
@@ -16,5 +17,7 @@ export default {
 </script>
 
 <style scoped>
-
+  main {
+    padding: 2rem 4rem;
+  }
 </style>
