@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1 class="md-display-1">Play List</h1>
-    <playlist-element-list v-bind:playlists="playlists"></playlist-element-list>
+    <playlist-element-list v-bind:playlists="playlists" ></playlist-element-list>
     <md-dialog :md-active.sync="showDialog">
       <md-dialog-title>Create a Playlist</md-dialog-title>
 

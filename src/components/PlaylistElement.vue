@@ -22,6 +22,9 @@
         </md-button>
 
         <md-menu-content>
+        <md-menu-item @click="">
+            <span>Edit playlist</span>
+          </md-menu-item>
           <md-menu-item @click="">
             <span>Delete playlist</span>
           </md-menu-item>

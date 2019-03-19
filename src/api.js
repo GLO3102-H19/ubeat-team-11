@@ -79,3 +79,9 @@ export function createPlayList(dataName, dataOwner) {
     ));
   return result;
 }
+export function getPlaylistById(id) {
+  const result = axios
+  .get(`${url}/playlists/${id}`)
+  .then(response => (response.data));
+  return result;
+}

@@ -1,7 +1,7 @@
 <template>
   <md-table md-card>
     <md-table-toolbar>
-      <h1 class="md-title">Playlist</h1>
+      <h1 class="md-title">{{this.playlistTitle}}</h1>
     </md-table-toolbar>
 
     <md-table-row>
@@ -12,12 +12,8 @@
       <md-table-head>Album</md-table-head>
     </md-table-row>
 
-    <song-playlist-element></song-playlist-element>
-    <song-playlist-element></song-playlist-element>
-    <song-playlist-element></song-playlist-element>
-    <song-playlist-element></song-playlist-element>
-    <song-playlist-element></song-playlist-element>
-    <song-playlist-element></song-playlist-element>
+    <song-playlist-element v-for="playlistSong in playlistsongs" v-bind:key="playlistSong._id" v-bind:playlistSong="playlistSong"></song-playlist-element>
+
 
   </md-table>
 </template>
@@ -27,6 +23,10 @@ import SongPlaylistElement from '@/components/SongPlaylistElement';
 
 export default {
   name: 'SongPlaylistElementList',
+  props: {
+    playlistsongs: Array,
+    playlistTitle: ''
+  },
   components: {
     'song-playlist-element': SongPlaylistElement
   }
