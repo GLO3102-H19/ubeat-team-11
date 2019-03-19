@@ -1,9 +1,11 @@
 <template>
-  <md-card md-with-hover>
-    <router-link :to="{ name: 'Playlist', params: { id: this.playlist.id } }">
-    <md-card-media>
+ <md-card md-with-hover>
+
+      <md-card-media >
+      <router-link :to="{ name: 'Playlist', params: { id: this.playlist.id } }">
         <img src="/static/no-cover.jpg" alt="Album Cover">
-        <md-button class="md-icon-button md-raised md-accent">
+        </router-link>
+         <md-button class="md-icon-button md-raised md-accent">
           <md-icon >play_arrow</md-icon>
         </md-button>
     </md-card-media>
@@ -26,8 +28,7 @@
         </md-menu-content>
       </md-menu>
     </md-card-header>
-  </router-link>
-  </md-card>
+  </md-card> 
 </template>
 
 <script>
@@ -36,7 +37,11 @@ export default {
   props: {
     playlist: {
       type: Object,
-      required: true
+      required: true,
+      default: () => ({
+        id: 0,
+        name: 'Unknown'
+      })
     }
   }
 };

@@ -75,7 +75,7 @@ export function createPlayList(dataName, dataOwner) {
   const result = axios
   .post(`${url}/playlists`, { name: dataName, owner: dataOwner })
   .then(response => (
-    { id: response.data.id, name: response.data.name, tracks: response.data.tracks }
+    response.data
     ));
   return result;
 }

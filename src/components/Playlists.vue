@@ -6,10 +6,10 @@
       <md-dialog-title>Create a Playlist</md-dialog-title>
 
       <md-field :class="{ 'md-invalid': error }">
-      <label>Title</label>
-      <md-input v-model="required" required></md-input>
-      <span class="md-error" :v-if="error">the Title is required</span>
-    </md-field>
+        <label>Title</label>
+        <md-input v-model="required" required></md-input>
+        <span class="md-error" :v-if="error">the Title is required</span>
+      </md-field>
 
       <md-dialog-actions>
         <md-button class="md-primary" @click="close()">Close</md-button>
@@ -17,7 +17,9 @@
       </md-dialog-actions>
     </md-dialog>
 
-    <md-button class="md-fab md-primary" @click="showDialog = true"><md-icon>add</md-icon></md-button>
+    <md-button class="md-fab md-primary" @click="showDialog = true">
+      <md-icon>add</md-icon>
+    </md-button>
   </main>
 </template>
 
@@ -32,16 +34,18 @@ export default {
     'playlist-element-list': PlaylistElementList
   },
   data: () => ({
-    playlists: Array,
+    playlists: [],
     required: '',
     showDialog: false,
     error: false,
     output: {}
   }),
   mounted() {
-    Axios
-      .get('http://ubeat.herokuapp.com/unsecure/playlists')
-      .then((response) => { console.log(response); return response; })
+    Axios.get('http://ubeat.herokuapp.com/unsecure/playlists')
+      .then((response) => {
+        console.log(response);
+        return response;
+      })
       .then(response => (this.playlists = response.data))
       .catch(error => console.log(error));
   },
@@ -54,12 +58,7 @@ export default {
         this.playlists.push(this.output);
         this.required = '';
         this.showDialog = false;
-        const item = {
-          id: this.output.id,
-          name: this.output.name,
-          tracks: this.output.tracks
-        };
-        console.log(item);
+        console.log(this.output);
       }
     },
     close() {
@@ -72,7 +71,7 @@ export default {
 </script>
 
 <style scoped>
-  main {
-    padding: 2rem 4rem;
-  }
+main {
+  padding: 2rem 4rem;
+}
 </style>
