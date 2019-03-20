@@ -4,7 +4,7 @@
           <md-button class="md-icon-button md-dense md-raised md-accent">
             <md-icon>play_arrow</md-icon>
           </md-button>
-          <span>{{songPlaylist.trackCensoredName}}</span>
+          <span>{{this.playlistSong.trackCensoredName}}</span>
         </md-table-cell>
         <md-table-cell>
           <md-menu md-size="big" md-direction="bottom-end">
@@ -19,19 +19,21 @@
             </md-menu-content>
           </md-menu>
         </md-table-cell>
-        <md-table-cell>{{songPlaylist.trackTimeMillis}}</md-table-cell>
-        <md-table-cell>{{songPlaylist.artistName}}</md-table-cell>
-        <md-table-cell>{{songPlaylist.collectionName}}</md-table-cell>
+        <md-table-cell>{{trackTimeMinSec}}</md-table-cell>
+        <md-table-cell>{{this.playlistSong.artistName}}</md-table-cell>
+        <md-table-cell :to="{ name: 'Album', params: { collectionId: this.playlistSong.collectionId } }>{{this.playlistSong.collectionName}}</md-table-cell>
     </md-table-row>
 </template>
 
 <script>
+import millisToMinutesAndSeconds from '../utility';
+
 export default {
   name: 'SongPlaylistElement',
   props: {
-    songPlaylist: {
+    playlistSong: {
       type: Object,
-      required: false,
+      required: true,
       default: () => ({
         trackId: 0,
         trackCensoredName: 'Unknown',
@@ -40,6 +42,12 @@ export default {
         collectionName: 'Unknown'
       })
     }
+  },
+  data: () => ({
+    trackTimeMinSec: 0
+  }),
+  beforeMount() {
+    this.trackTimeMinSec = millisToMinutesAndSeconds(this.playlistSong.trackTimeMillis);
   }
 };
 </script>

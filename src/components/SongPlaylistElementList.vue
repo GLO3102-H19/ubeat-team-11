@@ -12,7 +12,7 @@
       <md-table-head>Album</md-table-head>
     </md-table-row>
 
-    <song-playlist-element v-for="playlistSong in playlistsongs" v-bind:key="playlistSong._id" v-bind:playlistSong="playlistSong"></song-playlist-element>
+    <song-playlist-element v-for="item in playlistSongs" v-bind:key="item._id" v-bind:playlistSong="item"></song-playlist-element>
 
 
   </md-table>
@@ -21,10 +21,11 @@
 <script>
 import SongPlaylistElement from '@/components/SongPlaylistElement';
 
+
 export default {
   name: 'SongPlaylistElementList',
   props: {
-    playlistsongs: Array,
+    playlistSongs: Array,
     playlistTitle: ''
   },
   components: {

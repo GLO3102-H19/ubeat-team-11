@@ -40,13 +40,11 @@
 
 <script>
   import * as api from '../api';
-  import AlbumElement from '../components/AlbumElement';
   import SongElementList from '../components/SongElementList';
 
   export default {
     name: 'Album',
     components: {
-      'album-element': AlbumElement,
       'song-element-list': SongElementList
     },
     data() {

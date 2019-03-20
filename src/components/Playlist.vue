@@ -1,5 +1,5 @@
 <template>
-  <song-playlist-element-list v-bind:playlistsongs="this.playlist.tracks" v-bind:playlistTitle="this.playlist.name"></song-playlist-element-list>
+  <song-playlist-element-list v-bind:playlistSongs="this.playlist.tracks" v-bind:playlistTitle="this.playlist.name"></song-playlist-element-list>
 </template>
 
 <script>

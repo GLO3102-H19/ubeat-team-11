@@ -11,6 +11,7 @@
     </md-card-media>
 
     <md-card-header>
+      
       <md-card-header-text>
         <div class="md-subheading">{{ playlist.name }}</div>
         <div class="md-caption">Playlist</div>
@@ -43,7 +44,9 @@ export default {
       required: true,
       default: () => ({
         id: 0,
-        name: 'Unknown'
+        name: 'Unknown',
+        owner: {},
+        tracks: []
       })
     }
   }

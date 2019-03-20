@@ -1,8 +1,10 @@
 <template>
   <md-card md-with-hover>
-    <router-link :to="{ name: 'Album', params: { collectionId: this.album.collectionId } }">
+  
     <md-card-media>
+        <router-link :to="{ name: 'Album', params: { collectionId: this.album.collectionId } }">
         <img :src="album.artworkUrl100" alt="Album Cover">
+        </router-link>
         <md-button class="md-icon-button md-raised md-accent" disabled>
           <md-icon> play_arrow</md-icon>
         </md-button>
@@ -26,7 +28,6 @@
         </md-menu-content>
       </md-menu>
     </md-card-header>
-    </router-link>
   </md-card>
 </template>
 
