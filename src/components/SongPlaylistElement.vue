@@ -20,8 +20,8 @@
           </md-menu>
         </md-table-cell>
         <md-table-cell>{{trackTimeMinSec}}</md-table-cell>
-        <md-table-cell>{{this.playlistSong.artistName}}</md-table-cell>
-        <md-table-cell :to="{ name: 'Album', params: { collectionId: this.playlistSong.collectionId } }>{{this.playlistSong.collectionName}}</md-table-cell>
+        <md-table-cell><router-link :to="{name: 'Artist',params: {artistId: this.playlistSong.artistId}}">{{this.playlistSong.artistName}}</router-link></md-table-cell>  
+        <md-table-cell ><router-link :to="{ name: 'Album', params: { collectionId: this.playlistSong.collectionId } }">{{this.playlistSong.collectionName}}</router-link></md-table-cell>
     </md-table-row>
 </template>
 

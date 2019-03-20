@@ -1,5 +1,4 @@
 import axios from 'axios';
-import millisToMinutesAndSeconds from './utility';
 
 const url = 'http://ubeat.herokuapp.com/unsecure';
 
@@ -39,7 +38,7 @@ export async function getTracks(idAlbum) {
     tracks: json.results.map(track => ({
       trackId: track.trackId,
       trackCensoredName: track.trackCensoredName,
-      trackTimeMillis: millisToMinutesAndSeconds(track.trackTimeMillis),
+      trackTimeMillis: track.trackTimeMillis,
       previewUrl: track.previewUrl,
     }))
 

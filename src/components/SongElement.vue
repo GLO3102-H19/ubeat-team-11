@@ -1,7 +1,7 @@
 <template>
      <md-table-row slot="md-table-row" slot-scope="{ song }">
         <md-table-cell md-label="TrackName" md-sort-by="name">{{ song.trackCensoredName }}</md-table-cell>
-        <md-table-cell md-label="Time" md-sort-by="time">{{ song.trackTimeMillis }}</md-table-cell>
+        <md-table-cell md-label="Time" md-sort-by="time">{{ trackMinAndSec }}</md-table-cell>
         <md-table-cell md-label="Url">
             <md-button class="md-icon-button" :href="song.previewUrl">
                      <md-icon class="arrowColor">play_arrow</md-icon>
@@ -23,6 +23,8 @@
       </md-table-row>
 </template>
 <script>
+import millisToMinutesAndSeconds from '../utility';
+
 export default {
   name: 'SongElement',
   props: {
@@ -37,9 +39,11 @@ export default {
       })
     }
   },
-  methods: {
-    playMusic: () => {
-    }
+  data: () => ({
+    trackMinAndSec: 0
+  }),
+  beforeMount() {
+    this.trackMinAndSec = millisToMinutesAndSeconds(this.song.trackTimeMillis);
   }
 };
 
