@@ -84,3 +84,10 @@ export function getPlaylistById(id) {
   .then(response => (response.data));
   return result;
 }
+
+export function deleteTrackInPlayList(idPlaylist, idTrack) {
+  const result = axios
+  .delete(`${url}/playlists/${idPlaylist}/tracks/${idTrack}`)
+  .then(response => (response));
+  return result;
+}

@@ -13,7 +13,7 @@
             </md-button>
 
             <md-menu-content>
-              <md-menu-item @click="">
+              <md-menu-item @click="RemoveSong()">
                 <span>Remove from play list</span>
               </md-menu-item>
             </md-menu-content>
@@ -27,6 +27,7 @@
 
 <script>
 import millisToMinutesAndSeconds from '../utility';
+import * as api from '../api';
 
 export default {
   name: 'SongPlaylistElement',
@@ -41,6 +42,9 @@ export default {
         artistName: 'Unknown',
         collectionName: 'Unknown'
       })
+    },
+    playlistId: {
+      type: String,
     }
   },
   data: () => ({
@@ -48,6 +52,13 @@ export default {
   }),
   beforeMount() {
     this.trackTimeMinSec = millisToMinutesAndSeconds(this.playlistSong.trackTimeMillis);
+  },
+  methods: {
+    async RemoveSong() {
+      const r = await api.deleteTrackInPlayList(this.playlistId, this.playlistSong.trackId);
+      console.log(r);
+      this.$emit('delete-track');
+    }
   }
 };
 </script>
