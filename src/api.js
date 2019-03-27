@@ -69,7 +69,13 @@ export async function getArtistSearched(artist) {
     primaryGenreName: item.primaryGenreName,
   }));
 }
-
+export function getAllPlaylists() {
+  const result = axios
+  .get(`${url}/playlists`)
+  .then(response => (response.data))
+  .catch(error => console.log(error));
+  return result;
+}
 export function createPlayList(dataName, dataOwner) {
   const result = axios
   .post(`${url}/playlists`, { name: dataName, owner: dataOwner })
@@ -85,6 +91,12 @@ export function getPlaylistById(id) {
   return result;
 }
 
+export function deletePlaylist(idPlaylist) {
+  const result = axios
+  .delete(`${url}/playlists/${idPlaylist}`)
+  .then(response => (response));
+  return result;
+}
 export function deleteTrackInPlayList(idPlaylist, idTrack) {
   const result = axios
   .delete(`${url}/playlists/${idPlaylist}/tracks/${idTrack}`)

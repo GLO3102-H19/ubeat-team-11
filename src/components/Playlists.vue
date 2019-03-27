@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1 class="md-display-1">Play List</h1>
-    <playlist-element-list v-bind:playlists="playlists" ></playlist-element-list>
+    <playlist-element-list v-bind:playlists="playlists"></playlist-element-list>
     <md-dialog :md-active.sync="showDialog">
       <md-dialog-title>Create a Playlist</md-dialog-title>
 
@@ -25,7 +25,6 @@
 
 <script>
 import PlaylistElementList from '@/components/PlaylistElementList';
-import Axios from 'axios';
 import * as api from '../api';
 
 export default {
@@ -40,14 +39,8 @@ export default {
     error: false,
     output: {}
   }),
-  mounted() {
-    Axios.get('http://ubeat.herokuapp.com/unsecure/playlists')
-      .then((response) => {
-        console.log(response);
-        return response;
-      })
-      .then(response => (this.playlists = response.data))
-      .catch(error => console.log(error));
+  async mounted() {
+    this.playlists = await api.getAllPlaylists();
   },
   methods: {
     async validation() {
@@ -65,7 +58,7 @@ export default {
       this.required = '';
       this.showDialog = false;
       this.error = false;
-    }
+    },
   }
 };
 </script>

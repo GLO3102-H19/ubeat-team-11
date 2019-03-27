@@ -1,6 +1,6 @@
 <template>
   <md-content>
-    <playlist-element v-for="playlist in playlists" v-bind:key="playlist.id" v-bind:playlist="playlist" ></playlist-element>
+    <playlist-element v-for="playlist in playlists" v-bind:key="playlist.id" v-bind:playlist="playlist" v-on:delete-playlist="deletethisPlaylist(playlist.id)" ></playlist-element>
   </md-content>
 </template>
 
@@ -14,6 +14,11 @@ export default {
   },
   components: {
     'playlist-element': PlaylistElement
+  },
+  methods: {
+    deletethisPlaylist(index) {
+      this.playlists.splice(index, 1);
+    }
   }
 };
 </script>

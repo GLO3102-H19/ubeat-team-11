@@ -26,7 +26,7 @@
         <md-menu-item @click="">
             <span>Edit playlist</span>
           </md-menu-item>
-          <md-menu-item @click="">
+          <md-menu-item @click="RemovePlayList()">
             <span>Delete playlist</span>
           </md-menu-item>
         </md-menu-content>
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import * as api from '../api';
+
 export default {
   name: 'PlaylistElement',
   props: {
@@ -48,6 +50,13 @@ export default {
         owner: {},
         tracks: []
       })
+    }
+  },
+  methods: {
+    async RemovePlayList() {
+      const r = await api.deletePlaylist(this.playlist.id);
+      console.log(r);
+      this.$emit('delete-playlist');
     }
   }
 };

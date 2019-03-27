@@ -18,7 +18,6 @@ export default {
   async mounted() {
     this.playlist = await api.getPlaylistById(this.$route.params.id);
     this.playlistId = this.$route.params.id;
-    console.log(this.playlistId);
   }
 };
 </script>
