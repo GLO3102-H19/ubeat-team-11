@@ -1,5 +1,6 @@
 <template>
  <md-card md-with-hover>
+  <edit-name-playlist-dialog v-bind:showDialog="this.showDialog" v-bind:playlistitem="playlist" v-on:close-dialog="showDialogStatus" v-on:update-playlist="updatePlaylist"></edit-name-playlist-dialog>
 
     <md-card-media >
       <router-link :to="{ name: 'Playlist', params: { id: this.playlist.id } }">
@@ -18,13 +19,12 @@
       </md-card-header-text>
 
       <md-menu md-size="big" md-direction="bottom-end">
-      <edit-name-playlist-dialog v-bind:showDialog="this.showDialog" v-bind:playlistitem="playlist" v-on:close-dialog="showDialogStatus"></edit-name-playlist-dialog>
         <md-button class="md-icon-button" md-menu-trigger>
           <md-icon>more_vert</md-icon>
         </md-button>
 
         <md-menu-content>
-        <md-menu-item @click="this.showDialog = true">
+        <md-menu-item @click="EditPlaylist()">
             <span>Edit playlist</span>
           </md-menu-item>
           <md-menu-item @click="RemovePlayList()">
@@ -52,14 +52,14 @@ export default {
         owner: {},
         tracks: []
       })
-    },
-    components: {
-      'edit-name-playlist-dialog': EditNamePlaylistDialog
-    },
-    data: () => ({
-      showDialog: false,
-    })
+    }
   },
+  components: {
+    'edit-name-playlist-dialog': EditNamePlaylistDialog
+  },
+  data: () => ({
+    showDialog: false,
+  }),
   methods: {
     async RemovePlayList() {
       const r = await api.deletePlaylist(this.playlist.id);
@@ -68,6 +68,14 @@ export default {
     },
     showDialogStatus(value) {
       this.showDialog = value;
+    },
+    EditPlaylist() {
+      this.showDialog = true;
+    },
+    updatePlaylist(value) {
+      this.playlist.name = value.newName;
+      this.showDialog = value.statusDialog;
+      this.tracks = value.tracks;
     }
   }
 };
