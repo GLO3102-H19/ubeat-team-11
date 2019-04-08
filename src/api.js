@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const url = 'http://ubeat.herokuapp.com/unsecure';
 
-export async function getAlbum(idAlbum) {
+/* export async function getAlbum(idAlbum) {
   const urlAlbum = `${url}/albums/${idAlbum}`;
   const response = await fetch(urlAlbum);
   const json = await response.json();
@@ -15,9 +15,16 @@ export async function getAlbum(idAlbum) {
     collectionViewUrl: json.results[0].collectionViewUrl,
     artworkUrl100: json.results[0].artworkUrl100,
   };
+} */
+export function getAlbum(idAlbum) {
+  const result = axios
+  .get(`${url}/albums/${idAlbum}`)
+  .then(response => (response.data.results))
+  .catch(error => console.log(error));
+  return result;
 }
 
-export async function getArtist(idArtist) {
+/* export async function getArtist(idArtist) {
   const urlArtist = `${url}/artists/${idArtist}`;
   const response = await fetch(urlArtist);
   const json = await response.json();
@@ -27,10 +34,16 @@ export async function getArtist(idArtist) {
     artistId: json.results[0].artistId,
     primaryGenreName: json.results[0].primaryGenreName,
   };
+} */
+
+export function getArtist(idArtist) {
+  const result = axios
+  .get(`${url}/artists/${idArtist}`)
+  .then(response => (response.data));
+  return result;
 }
 
-
-export async function getTracks(idAlbum) {
+/* export async function getTracks(idAlbum) {
   const urlTracks = `${url}/albums/${idAlbum}/tracks`;
   const response = await fetch(urlTracks);
   const json = await response.json();
@@ -43,8 +56,14 @@ export async function getTracks(idAlbum) {
     }))
 
   };
+} */
+export function getTracks(idAlbum) {
+  const result = axios
+  .get(`${url}/albums/${idAlbum}/tracks`)
+  .then(response => (response.data.results));
+  return result;
 }
-export async function getArtistAlbums(idArtist) {
+/* export async function getArtistAlbums(idArtist) {
   const urlalbumsArtist = `${url}/artists/${idArtist}/albums`;
   const response = await fetch(urlalbumsArtist);
   const result = await response.json();
@@ -55,9 +74,15 @@ export async function getArtistAlbums(idArtist) {
       collectionName: item.collectionName,
       artworkUrl100: item.artworkUrl100,
     }))
+  }; */
 
-  };
+export function getArtistAlbums(idArtist) {
+  const result = axios
+  .get(`${url}/artists/${idArtist}/albums`)
+  .then(response => (response.data));
+  return result;
 }
+
 
 export async function getArtistSearched(artist) {
   const urlArtist = `${url}/search/artists?q=${artist}`;
@@ -100,6 +125,18 @@ export function deletePlaylist(idPlaylist) {
 export function deleteTrackInPlayList(idPlaylist, idTrack) {
   const result = axios
   .delete(`${url}/playlists/${idPlaylist}/tracks/${idTrack}`)
+  .then(response => (response));
+  return result;
+}
+export function postTrackInPlaylist(idPlaylist, track) {
+  const result = axios
+  .post(`${url}/playlists/${idPlaylist}/tracks`, track)
+  .then(response => (response));
+  return result;
+}
+export function putEditNamePlayList(playlist, newName) {
+  const result = axios
+  .put(`${url}/playlists/${playlist.id}`, { name: newName, owner: playlist.owner.email })
   .then(response => (response));
   return result;
 }
