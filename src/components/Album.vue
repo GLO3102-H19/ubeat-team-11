@@ -13,13 +13,13 @@
           <p> Date:  {{AlbumInformation.releaseDate}}             </p>
           <p> Album: {{AlbumInformation.collectionName}}   </p>
           <p>        {{AlbumInformation.copyright}}        </p>
-    </div>
+        </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
           <md-button :href="AlbumInformation.collectionViewUrl">
             <md-icon>insert_link</md-icon>
           </md-button>
 
-        </div>
+         </div>
       </div>
     </md-content>
 
