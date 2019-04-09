@@ -6,6 +6,7 @@ import Artist from '@/components/Artist';
 import Playlist from '@/components/Playlist';
 import Playlists from '@/components/Playlists';
 import UserProfile from '@/components/UserProfile';
+import Login from '@/components/Login';
 
 Vue.use(Router);
 
@@ -15,6 +16,10 @@ export default new Router({
       path: '/home',
       name: 'Home',
       component: Home,
+    }, {
+      path: '/login/',
+      name: 'Login',
+      component: Login
     }, {
       path: '/artist/:artistId',
       name: 'Artist',
