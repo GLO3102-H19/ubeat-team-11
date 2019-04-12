@@ -15,6 +15,8 @@
 </template>
 
 <script>
+const api = require('@/api');
+
 export default {
   name: 'Login',
   data: () => ({
@@ -23,7 +25,7 @@ export default {
   }),
   methods: {
     login() {
-      return this.email;
+      console.log(api.postLogin(this.email, this.password));
     },
   },
 };

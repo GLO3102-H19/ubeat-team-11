@@ -130,7 +130,15 @@ export function deleteFollow(idUserFollow) {
 
 export function getTokenInfo() {
   const result = axios
-    .get(`${urlv2}/gokenInfo`, { Authorization: tokenTemp })
+    .get(`${urlv2}/tokenInfo`, { Authorization: tokenTemp })
+    .then(response => (response.data))
+    .catch(error => console.error(error));
+  return result;
+}
+
+export function postLogin(email, password) {
+  const result = axios
+    .post(`${urlv2}/login`, { email, password }, { Authorization: tokenTemp })
     .then(response => (response.data))
     .catch(error => console.error(error));
   return result;
