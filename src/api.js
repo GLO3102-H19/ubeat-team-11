@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jscookie from 'js-cookie';
 
 
 const url = 'http://ubeat.herokuapp.com/unsecure';
@@ -142,7 +143,7 @@ export function postLogin(userEmail, userPassword) {
   const value = { email: userEmail, password: userPassword };
   const result = axios
     .post(`${urlv2}/login`, value)
-    .then(response => (response.data))
+    .then(response => (jscookie.set('token', response.data.token)))
     .catch(error => (console.log(error)));
   return result;
 }
