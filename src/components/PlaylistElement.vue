@@ -92,4 +92,11 @@ export default {
   .md-card {
     width: 300px;
   }
+
+  .md-subheading {
+    text-overflow: ellipsis;
+    width: 220px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 </style>
