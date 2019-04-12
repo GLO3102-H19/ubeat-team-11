@@ -7,6 +7,7 @@ import Playlist from '@/components/Playlist';
 import Playlists from '@/components/Playlists';
 import UserProfile from '@/components/UserProfile';
 import Login from '@/components/Login';
+import SignUp from '@/components/SignUp';
 
 Vue.use(Router);
 
@@ -20,6 +21,10 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    }, {
+      path: '/signup/',
+      name: 'SignUp',
+      component: SignUp
     }, {
       path: '/artist/:artistId',
       name: 'Artist',
