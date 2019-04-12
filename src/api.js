@@ -138,27 +138,14 @@ export function getTokenInfo() {
   return result;
 }
 
-export function postLogin(email, password) {
-  const result = axios
-    .post(`${urlv2}/login`, { email, password }, { Authorization: tokenTemp })
-    .then(response => (response.data))
-    .catch(error => console.error(error));
-  return result;
-}
-
-/* export function postlogin(userEmail, userPassword) {
+export function postLogin(userEmail, userPassword) {
   const value = { email: userEmail, password: userPassword };
-  /* const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  };
   const result = axios
     .post(`${urlv2}/login`, value)
-    .get(response => (response))
+    .then(response => (response.data))
     .catch(error => (console.log(error)));
   return result;
-} */
+}
 
 export function getBioFromArtist(artistName) {
   const result = axios
