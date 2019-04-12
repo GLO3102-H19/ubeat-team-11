@@ -95,7 +95,7 @@ export default {
 
   .md-subheading {
     text-overflow: ellipsis;
-    width: 220px;
+    width: 232px;
     overflow: hidden;
     white-space: nowrap;
   }

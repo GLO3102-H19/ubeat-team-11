@@ -22,7 +22,7 @@ export default {
     password: '',
   }),
   methods: {
-    login: function login() {
+    login() {
       return this.username;
     },
   },
