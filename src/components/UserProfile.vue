@@ -17,8 +17,9 @@
       </div>
     </md-content>
     <h1 class="md-display-1">Playlist</h1>
-    <playlist-element-list v-bind:playlists="playlistUsers"></playlist-element-list>
+    <playlist-element-list v-bind:playlists="this.playlistUser"></playlist-element-list>
     <h1 class="md-display-1">Friends</h1>
+    <friend-element-list v-bind:friends="this.friendlistUsers"></friend-element-list>
   </div>
 </template>
 <script>
@@ -41,7 +42,7 @@ export default {
     'friend-element-list': FriendElementList
   },
   async mounted() {
-   /* this.id = this.$route.params.id;
+    this.id = this.$route.params.id;
     const itemUser = await api.getUsersbyId(this.id);
     this.userInformation = itemUser;
     const itemPlaylist = await api.getPlaylistById(this.id);
@@ -66,7 +67,7 @@ export default {
       } else {
         isInside = false;
       }
-    }); */
+    });
   },
   methods: {
     getIntial() {
