@@ -3,7 +3,7 @@
     <md-card>
       <md-field>
           <label>Email</label>
-          <md-input v-model="email"></md-input>
+        <md-input v-model="email" type="email"></md-input>
       </md-field>
       <md-field>
           <label>Password</label>
