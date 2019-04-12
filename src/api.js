@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const url = 'http://ubeat.herokuapp.com/unsecure';
 const urlv2 = 'http://ubeat.herokuapp.com';
 const tokenTemp = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI1Y2FjYTBhZDg1ZGQwMTAwMDRmMTBhYmMiLCJleHAiOjE1NTQ5MDM4OTI4ODJ9.siKK-93s75Ia-PXVIMA0o9Nd4YMuJfdzRXjNYtegZeE';
@@ -105,9 +106,10 @@ export function getUsers() {
 }
 
 export function getUsersbyId(idUser) {
+  const config = { headers: { Authorization: `Bearer ${tokenTemp}` } };
   const result = axios
-    .get(`${urlv2}/users/${idUser}`, { Authorization: tokenTemp })
-    .then(response => (response.data))
+    .get(`${urlv2}/users/${idUser}`, config)
+    .then(response => (response))
     .catch(error => console.error(error));
   return result;
 }
@@ -141,5 +143,27 @@ export function postLogin(email, password) {
     .post(`${urlv2}/login`, { email, password }, { Authorization: tokenTemp })
     .then(response => (response.data))
     .catch(error => console.error(error));
+  return result;
+}
+
+/* export function postlogin(userEmail, userPassword) {
+  const value = { email: userEmail, password: userPassword };
+  /* const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  };
+  const result = axios
+    .post(`${urlv2}/login`, value)
+    .get(response => (response))
+    .catch(error => (console.log(error)));
+  return result;
+} */
+
+export function getBioFromArtist(artistName) {
+  const result = axios
+    .get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json`)
+    .then(response => (response.data))
+    .catch(error => (console.log(error)));
   return result;
 }

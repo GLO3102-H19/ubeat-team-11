@@ -8,9 +8,11 @@ import VueMaterial from '../node_modules/vue-material';
 import '../node_modules/vue-material/dist/vue-material.css';
 import '../node_modules/vue-material/dist/theme/default.css';
 import axios from '../node_modules/axios';
+import queryString from '../node_modules/querystring';
 
 Vue.use(VueMaterial);
 Vue.use(axios);
+Vue.use(queryString);
 
 Vue.config.productionTip = false;
 

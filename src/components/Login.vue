@@ -2,14 +2,14 @@
   <md-content>
     <md-card>
       <md-field>
-          <label>Email</label>
+        <label>Email</label>
         <md-input v-model="email" type="email"></md-input>
       </md-field>
       <md-field>
-          <label>Password</label>
-          <md-input v-model="password" type="password"></md-input>
+        <label>Password</label>
+        <md-input v-model="password" type="password"></md-input>
       </md-field>
-      <md-button @click="login" class="md-raised md-primary">Login</md-button>
+      <md-button @click="login()" class="md-raised md-primary">Login</md-button>
     </md-card>
   </md-content>
 </template>
@@ -21,7 +21,7 @@ export default {
   name: 'Login',
   data: () => ({
     email: '',
-    password: '',
+    password: ''
   }),
   methods: {
     login() {
@@ -41,6 +41,6 @@ export default {
 
 .md-card {
   width: 400px;
-  padding: 1.0rem;
+  padding: 1rem;
 }
 </style>

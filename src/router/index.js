@@ -18,7 +18,7 @@ export default new Router({
       name: 'Home',
       component: Home,
     }, {
-      path: '/login/',
+      path: '/',
       name: 'Login',
       component: Login
     }, {
@@ -38,7 +38,7 @@ export default new Router({
       name: 'Playlist',
       component: Playlist
     }, {
-      path: '/',
+      path: '/playlists',
       name: 'Playlists',
       component: Playlists
     }, {

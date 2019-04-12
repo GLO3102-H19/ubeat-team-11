@@ -3,14 +3,13 @@
     <md-content class="md-layout-item md-size-100">
       <div class="md-layout md-alignment-center-center">
         <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
-            <md-avatar class="md-avatar-icon md-large md-accent">
-                  <md-ripple>{{this.userInformation.initial}}</md-ripple>
-            </md-avatar>
+          <md-avatar class="md-avatar-icon md-large md-accent">
+            <md-ripple>{{this.userInformation.initial}}</md-ripple>
+          </md-avatar>
         </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
           <h1 class="md-display-1">Name: {{this.userInformation.name}}</h1>
           <h1 class="md-display-1">Email: {{this.userInformation.email}}</h1>
-   
         </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
           <md-switch v-model="followStatus" :change="UpdateFollow()">{{this.followStatusText}}</md-switch>
@@ -18,8 +17,8 @@
       </div>
     </md-content>
     <h1 class="md-display-1">Playlist</h1>
-     <playlist-element-list v-bind:playlists="playlistUsers"></playlist-element-list>
-     <h1 class="md-display-1">Friends</h1>
+    <playlist-element-list v-bind:playlists="playlistUsers"></playlist-element-list>
+    <h1 class="md-display-1">Friends</h1>
   </div>
 </template>
 <script>
@@ -42,10 +41,11 @@ export default {
     'friend-element-list': FriendElementList
   },
   async mounted() {
-    this.id = this.$route.params.id;
+   /* this.id = this.$route.params.id;
     const itemUser = await api.getUsersbyId(this.id);
     this.userInformation = itemUser;
     const itemPlaylist = await api.getPlaylistById(this.id);
+    console.log(itemPlaylist);
     this.playlistUser.push(itemPlaylist);
     this.getIntial();
     const connectedUser = await api.getTokenInfo();
@@ -66,7 +66,7 @@ export default {
       } else {
         isInside = false;
       }
-    });
+    }); */
   },
   methods: {
     getIntial() {
@@ -79,7 +79,7 @@ export default {
         console.log(result);
         this.followStatusText = 'follow';
       } else {
-          // mettre API for unfollow someone
+        // mettre API for unfollow someone
         const result = await api.deleteFollow(this.id);
         console.log(result);
         this.followStatusText = 'unfollow';
