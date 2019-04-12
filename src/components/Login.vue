@@ -2,8 +2,8 @@
   <md-content>
     <md-card>
       <md-field>
-          <label>Username</label>
-          <md-input v-model="username"></md-input>
+          <label>Email</label>
+          <md-input v-model="email"></md-input>
       </md-field>
       <md-field>
           <label>Password</label>
@@ -18,12 +18,12 @@
 export default {
   name: 'Login',
   data: () => ({
-    username: '',
+    email: '',
     password: '',
   }),
   methods: {
     login() {
-      return this.username;
+      return this.email;
     },
   },
 };
