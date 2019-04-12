@@ -2,30 +2,33 @@
   <md-content>
     <md-card>
       <md-field>
-          <label>Username</label>
-          <md-input v-model="username"></md-input>
+        <label>Email</label>
+        <md-input v-model="email" type="email"></md-input>
       </md-field>
       <md-field>
-          <label>Password</label>
-          <md-input v-model="password" type="password"></md-input>
+        <label>Password</label>
+        <md-input v-model="password" type="password"></md-input>
       </md-field>
-      <md-button @click="login" class="md-raised md-primary">Login</md-button>
+      <md-button @click="login()" class="md-raised md-primary">Login</md-button>
     </md-card>
   </md-content>
 </template>
 
 <script>
+// import * as api from '../api';
+
 export default {
   name: 'Login',
   data: () => ({
-    username: '',
-    password: '',
+    email: '',
+    password: ''
   }),
   methods: {
     login() {
-      return this.username;
-    },
-  },
+      // const status = api.postlogin(this.email, this.password);
+      // console.log(status);
+    }
+  }
 };
 </script>
 
@@ -39,6 +42,6 @@ export default {
 
 .md-card {
   width: 400px;
-  padding: 1.0rem;
+  padding: 1rem;
 }
 </style>
