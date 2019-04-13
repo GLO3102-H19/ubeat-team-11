@@ -35,17 +35,6 @@ export function getArtistAlbums(idArtist) {
   return result;
 }
 
-export async function getArtistSearched(artist) {
-  const urlArtist = `${url}/search/artists?q=${artist}`;
-  const response = await fetch(urlArtist);
-  const result = await response.json();
-  return result.results.map(item => ({
-    artistId: item.artistId,
-    artistName: item.artistName,
-    primaryGenreName: item.primaryGenreName,
-  }));
-}
-
 export function getAllPlaylists() {
   const result = axios
     .get(`${url}/playlists`)
@@ -73,6 +62,13 @@ export function getPlaylistById(id) {
 export function deletePlaylist(idPlaylist) {
   const result = axios
     .delete(`${url}/playlists/${idPlaylist}`)
+    .then(response => (response));
+  return result;
+}
+
+export function modifyPlaylist(idPlaylist, dataName) {
+  const result = axios
+    .put(`${url}/playlists/${idPlaylist}`, { name: dataName, owner: 'tommy@ubeat.ca' })
     .then(response => (response));
   return result;
 }
@@ -153,5 +149,53 @@ export function getBioFromArtist(artistName) {
     .get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json`)
     .then(response => (response.data))
     .catch(error => (console.log(error)));
+  return result;
+}
+
+export function idUser(id) {
+  const result = axios
+    .get(`${url}/users/:${id}`)
+    .then(response => (response.data))
+    .catch(error => console.log(error));
+  return result;
+}
+
+export function albumSearched(album) {
+  const result = axios
+    .get(`${url}/search/albums?q=${album}`)
+    .then(response => (response.data))
+    .catch(error => console.log(error));
+  return result;
+}
+
+export function artistSearched(artist) {
+  const result = axios
+    .get(`${url}/search/artists?q=${artist}`)
+    .then(response => (response.data))
+    .catch(error => console.log(error));
+  return result;
+}
+
+export function globalSearched(name) {
+  const result = axios
+    .get(`${url}/search/?q=${name}`)
+    .then(response => (response.data))
+    .catch(error => console.log(error));
+  return result;
+}
+
+export function trackSearched(track) {
+  const result = axios
+    .get(`${url}/search/tracks?q=${track}`)
+    .then(response => (response))
+    .catch(error => console.log(error));
+  return result;
+}
+
+export function userSearched(name) {
+  const result = axios
+    .get(`${url}/search/users?q=${name}`)
+    .then(response => (response.data))
+    .catch(error => console.log(error));
   return result;
 }
