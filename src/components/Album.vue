@@ -1,25 +1,26 @@
 <template>
   <div id="album" class="md-layout">
     <md-content class="md-layout-item md-size-100">
+    <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
       <div class="md-layout md-alignment-center-center">
         <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
           <figure>
-            <img class="imageAlbum" :src="artworkUrl100" alt="Album">
+            <img class="imageAlbum" :src="AlbumInformation.artworkUrl100" alt="Album">
 
           </figure>
         </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
-          <p> Genre: {{genre}}            </p>
-          <p> Date:  {{date}}             </p>
-          <p> Album: {{collectionName}}   </p>
-          <p>        {{copyright}}        </p>
-    </div>
+          <p> Genre: {{AlbumInformation.primaryGenreName}}            </p>
+          <p> Date:  {{AlbumInformation.releaseDate}}             </p>
+          <p> Album: {{AlbumInformation.collectionName}}   </p>
+          <p>        {{AlbumInformation.copyright}}        </p>
+        </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
-          <md-button :href="itunesAlbum">
+          <md-button :href="AlbumInformation.collectionViewUrl">
             <md-icon>insert_link</md-icon>
           </md-button>
 
-        </div>
+         </div>
       </div>
     </md-content>
 
@@ -50,35 +51,20 @@
     data() {
       return {
         id: 0,
-        genre: '',
-        artistName: '',
-        artworkUrl100: '',
-        collectionName: '',
-        itunesAlbum: '',
-        copyright: '',
-        date: '',
+        AlbumInformation: Object,
         listTracks: [],
+        progressStatus: true
       };
     },
     async  mounted() {
       this.id = this.$route.params.collectionId;
-      const { artistName, collectionName, artworkUrl100 } = await api.getAlbum(this.id);
-      const { releaseDate, primaryGenreName, copyright } = await api.getAlbum(this.id);
-      const { collectionViewUrl } = await api.getAlbum(this.id);
-      const trackTimeMillis = await api.getTracks(this.id);
-      this.artistName = artistName;
-      this.date = releaseDate;
-      this.genre = primaryGenreName;
-      this.itunesAlbum = collectionViewUrl;
-      this.artworkUrl100 = artworkUrl100;
-      this.copyright = copyright;
-      this.collectionName = collectionName;
-      this.listTracks = trackTimeMillis.tracks;
+      const item = await api.getAlbum(this.id);
+      this.AlbumInformation = item[0];
+      const tracks = await api.getTracks(this.id);
+      this.listTracks = tracks;
+      this.progressStatus = false;
     },
     computed: {
-      icon() {
-        return this.artworkUrl100;
-      },
     }
 
   };

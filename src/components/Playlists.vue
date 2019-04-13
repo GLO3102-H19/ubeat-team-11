@@ -1,5 +1,6 @@
 <template>
   <main>
+    <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
     <h1 class="md-display-1">Play List</h1>
     <playlist-element-list v-bind:playlists="playlists"></playlist-element-list>
     <md-dialog :md-active.sync="showDialog">
@@ -37,21 +38,28 @@ export default {
     required: '',
     showDialog: false,
     error: false,
-    output: {}
+    output: {},
+    progressStatus: true
   }),
   async mounted() {
     this.playlists = await api.getAllPlaylists();
+    this.progressStatus = false;
   },
   methods: {
     async validation() {
       if (!this.required) {
         this.error = true;
       } else {
-        this.output = await api.createPlayList(this.required, 'tommy@ubeat.ca');
-        this.playlists.push(this.output);
-        this.required = '';
-        this.showDialog = false;
-        console.log(this.output);
+        const result = await api.getTokenInfo();
+        if (result.status === 400) {
+          console.log(result.err);
+        } else {
+          this.output = await api.createPlayList(this.required, result.email);
+          this.playlists.push(this.output);
+          this.required = '';
+          this.showDialog = false;
+          console.log(this.output);
+        }
       }
     },
     close() {
