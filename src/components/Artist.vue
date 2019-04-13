@@ -1,6 +1,7 @@
 <template>
   <div class="md-layout">
     <md-content class="md-layout-item md-size-100">
+        <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
       <div class="md-layout md-alignment-left">
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
           <img :src="this.imageLink" alt srcset>
@@ -33,7 +34,8 @@ export default {
     albumArtist: [],
     artistInfo: {},
     imageLink: '',
-    bio: ''
+    bio: '',
+    progressStatus: true
   }),
   async mounted() {
     this.id = this.$route.params.artistId;
@@ -47,6 +49,7 @@ export default {
     const indexRemoveLink = bio.artist.bio.summary.indexOf('<');
     console.log(indexRemoveLink);
     this.bio = bio.artist.bio.summary.substr(0, indexRemoveLink - 1);
+    this.progressStatus = false;
   }
 };
 </script>

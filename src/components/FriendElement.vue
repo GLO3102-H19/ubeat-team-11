@@ -1,5 +1,5 @@
 <template>
-  <md-card>
+  <md-card class="md-layout-item md-medium-size-33 md-small-size-50 md-xsmall-size-100">
     <md-card-header>
       <md-card-header-text>
         <div class="md-title">{{friend.name}}</div>
@@ -13,7 +13,7 @@
       </md-card-media>
     </md-card-header>
     <md-card-actions>
-      <md-switch v-model="friend.doIfollow" :change="UpdateFollow()">{{this.followStatusText}}</md-switch>
+       <md-switch v-model="friend.doIfollow" @change="UpdateFollow()">{{this.followStatusText}}</md-switch>
     </md-card-actions>
   </md-card>
 </template>
@@ -37,25 +37,30 @@ export default {
   },
   methods: {
     getIntial() {
-      const editName = this.name.split(' ');
-      this.initial = editName[0].charAt(0) + editName[1].charAt(0);
+      const editName = this.friend.name.split(' ');
+      if (editName.length !== 1) {
+        this.initial = editName[0].charAt(0) + editName[1].charAt(0);
+      } else {
+        this.initial = editName[0].charAt(0);
+      }
+    },
+    async UpdateFollow() {
+      console.log(this.friend.doIfollow);
+      if (this.friend.doIfollow) {
+        // mettre API for follow someone
+        const result = await api.postFollow(this.friend.id);
+        console.log(result);
+        this.followStatusText = 'follow';
+        this.$emit('add-follow', this.friend.id);
+      } else {
+        // mettre API for unfollow someone
+        const result = await api.deleteFollow(this.friend.id);
+        console.log(result);
+        this.followStatusText = 'unfollow';
+        this.$emit('delete-follow', this.friend.id);
+      }
     }
   },
-  UpdateFollow() {
-    if (this.friend.doIfollow) {
-      // mettre API for follow someone
-      const result = api.postFollow(this.friend.id);
-      console.log(result);
-      this.followStatusText = 'follow';
-      this.$emit('update-follow', this.friend.doIfollow);
-    } else {
-      // mettre API for unfollow someone
-      const result = api.deleteFollow(this.friend.id);
-      console.log(result);
-      this.followStatusText = 'unfollow';
-      this.$emit('update-follow', this.friend.doIfollow);
-    }
-  }
 };
 </script>
 <style scoped>

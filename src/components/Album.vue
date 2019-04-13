@@ -1,6 +1,7 @@
 <template>
   <div id="album" class="md-layout">
     <md-content class="md-layout-item md-size-100">
+    <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
       <div class="md-layout md-alignment-center-center">
         <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
           <figure>
@@ -52,6 +53,7 @@
         id: 0,
         AlbumInformation: Object,
         listTracks: [],
+        progressStatus: true
       };
     },
     async  mounted() {
@@ -60,6 +62,7 @@
       this.AlbumInformation = item[0];
       const tracks = await api.getTracks(this.id);
       this.listTracks = tracks;
+      this.progressStatus = false;
     },
     computed: {
     }

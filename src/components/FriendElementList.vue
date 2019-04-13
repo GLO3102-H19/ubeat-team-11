@@ -1,6 +1,6 @@
 <template>
-    <md-content>
-      <friend-element v-for="friend in friends" v-bind:key="friend.id" v-bind:friend="friend" v-on:update-follow="UpdateDialog"></friend-element>
+    <md-content class="md-layout md-size-100 md-alignment-left-center md-gutter">
+      <friend-element v-for="friend in friends" v-bind:key="friend.id" v-bind:friend="friend" v-on:add-follow="addFollow" v-on:delete-follow="deleteFollow"></friend-element>
     </md-content>
 </template>
 <script>
@@ -15,8 +15,13 @@ export default {
     'friend-element': FriendElement
   },
   methods: {
-    UpdateDialog(index, value) {
-      this.friends[index].doIfollow = value;
+    addFollow(value) {
+      const index = this.friends.findIndex(e => e.id === value);
+      this.friends[index].doIfollow = true;
+    },
+    deleteFollow(value) {
+      const index = this.friends.findIndex(e => e.id === value);
+      this.friends[index].doIfollow = false;
     }
   }
 };

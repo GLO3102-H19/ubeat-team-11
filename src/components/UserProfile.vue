@@ -12,14 +12,16 @@
           <h1 class="md-display-1">Email: {{this.userInformation.email}}</h1>
         </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
-          <md-switch v-model="followStatus" :change="UpdateFollow()">{{this.followStatusText}}</md-switch>
+          <md-switch v-model="this.followStatus" @change="UpdateFollow()">{{this.followStatusText}}</md-switch>
         </div>
       </div>
     </md-content>
-    <h1 class="md-display-1">Playlist</h1>
+    <div class="md-layout md-alignment-left-center">
+    <h1 class="md-display-1 md-layout-item md-size-100">Playlist</h1>
     <playlist-element-list v-bind:playlists="this.playlistUser"></playlist-element-list>
-    <h1 class="md-display-1">Friends</h1>
+    <h1 class="md-display-1  md-layout-item md-size-100">Friends</h1>
     <friend-element-list v-bind:friends="this.friendlistUsers"></friend-element-list>
+    </div>
   </div>
 </template>
 <script>
@@ -33,7 +35,7 @@ export default {
     id: Number,
     userInformation: Object,
     followStatusText: 'Unfollow',
-    followStatus: Boolean,
+    followStatus: false,
     playlistUser: [],
     friendlistUsers: []
   }),
@@ -44,15 +46,19 @@ export default {
   async mounted() {
     this.id = this.$route.params.id;
     const itemUser = await api.getUsersbyId(this.id);
-    this.userInformation = itemUser;
-    const itemPlaylist = await api.getPlaylistById(this.id);
-    console.log(itemPlaylist);
-    this.playlistUser.push(itemPlaylist);
-    this.getIntial();
+    const itemPlaylist = await api.filterplaylistByUserId(this.id);
     const connectedUser = await api.getTokenInfo();
+    this.userInformation = itemUser;
+    this.playlistUser = itemPlaylist;
+    this.getIntial();
     let isInside = false;
-    connectedUser.following.forEach((element1) => {
-      itemUser.following.forEach((element2) => {
+    connectedUser.following.forEach((element) => {
+      if (element.id === this.userInformation.id) {
+        this.followStatus = true;
+      }
+    });
+    itemUser.following.forEach((element1) => {
+      connectedUser.following.forEach((element2) => {
         if (element1.id === element2.id) {
           const item = element1;
           item.doIfollow = true;
@@ -72,17 +78,24 @@ export default {
   methods: {
     getIntial() {
       const editName = this.userInformation.name.split(' ');
-      this.initial = editName[0].charAt(0) + editName[1].charAt(0);
+      if (editName.length !== 1) {
+        this.userInformation.initial = editName[0].charAt(0) + editName[1].charAt(0);
+      } else {
+        this.userInformation.initial = editName[0].charAt(0);
+      }
     },
     async UpdateFollow() {
-      if (this.followStatus) {
+      if (!this.followStatus) {
+        console.log('hello');
         const result = await api.postFollow(this.id);
         console.log(result);
+        this.followStatus = true;
         this.followStatusText = 'follow';
       } else {
         // mettre API for unfollow someone
         const result = await api.deleteFollow(this.id);
         console.log(result);
+        this.followStatus = false;
         this.followStatusText = 'unfollow';
       }
     }
