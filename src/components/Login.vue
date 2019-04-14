@@ -54,7 +54,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0rem;
+  padding: 2rem 0rem;
 }
 
 .md-card {
