@@ -41,9 +41,13 @@ export default {
     output: {},
     progressStatus: true
   }),
-  async mounted() {
-    this.playlists = await api.getAllPlaylists();
-    this.progressStatus = false;
+  async beforeMount() {
+    if (api.checkIfCookieIsAlive() === false) {
+      this.$router.push({ name: 'Login' });
+    } else {
+      this.playlists = await api.getAllPlaylists();
+      this.progressStatus = false;
+    }
   },
   methods: {
     async validation() {

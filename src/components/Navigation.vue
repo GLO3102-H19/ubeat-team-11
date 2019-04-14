@@ -6,7 +6,7 @@
         </div>
 
 
-  <v-select label="name" style="width: 500px" :filterable="true" :options="searchResult" @change="changeRoute" @search="wichFilter">
+  <v-select v-if="isLogin" label="name" style="width: 500px" :filterable="true" :options="searchResult" @change="changeRoute" @search="wichFilter">
     <template slot="no-options">
       No Result Found
     </template>
@@ -20,7 +20,7 @@
     </template>
   </v-select>
       
-    <md-menu md-size="small">
+    <md-menu md-size="small" v-if="isLogin">
       <md-button class="md-icon-button" md-menu-trigger>
         <md-icon>more_vert</md-icon>
       </md-button>
@@ -31,28 +31,30 @@
        </md-menu-item>
       </md-menu-content>
     </md-menu>
-  <div class="md-toolbar-section-end">
-         
-    <md-menu md-size="big" md-direction="bottom-end">
-      <md-avatar class="md-avatar-icon" md-menu-trigger>{{this.userName}}</md-avatar>
-      <md-menu-content>
-                <md-button @click="logOut()" class="md-accent">Log Out</md-button>
-      </md-menu-content>
-    </md-menu>
+        <div class="md-toolbar-section-end">
+               
+          <md-menu v-if="isLogin" md-size="big" md-direction="bottom-end">
+            <md-avatar class="md-avatar-icon" md-menu-trigger>{{this.userName}}</md-avatar>
+            <md-menu-content>
+                      <md-button @click="logOut()" class="md-accent">Log Out</md-button>
+            </md-menu-content>
+          </md-menu>
+           <md-button v-if="!isLogin" @click="LoginIn()" >Log in</md-button>
+            <md-button v-if="!isLogin" @click="SignUp()">Sign Up</md-button>
         </div>
-      </div>
+    </div>
     </md-toolbar>
 
 </template>
 
 <script>
-
-
 import * as api from '../api';
+
 
 export default {
   name: 'navigation',
   data: () => ({
+    isLogin: false,
     selected: {},
     radioChoice: 'Global',
     userName: '',
@@ -67,16 +69,26 @@ export default {
     ],
     loaded: false
   }),
-  async mounted() {
-    /* if (api.checkIfCookieIsAlive() === false) {
-      this.$router.push({ path: 'Login' });
-    }
-    const result = await api.getTokenInfo();
-    if (result.data === 400) {
-      this.$router.push({ path: 'Login' });
+  async beforeMount() {
+    if (api.checkIfCookieIsAlive() === false) {
+      this.$router.push({ name: 'Login' });
     } else {
-      // this.userName = result.name.substring(0, 1);
-    } */
+      const user = await api.getTokenInfo();
+      this.userName = user.data.name.substring(0, 1);
+      this.isLogin = true;
+    }
+  },
+  created() {
+    this.$bus.$on('logged', async (msg) => {
+      if (msg === true) {
+        const user = await api.getTokenInfo();
+        this.userName = user.data.name.substring(0, 1);
+        this.isLogin = msg;
+        this.$router.replace({ name: 'Playlists' });
+        this.$router.go();
+      }
+      return msg;
+    });
   },
   methods: {
     wichFilter(search, loading) {
@@ -178,7 +190,16 @@ export default {
     },
     logOut() {
       api.logOut();
-      this.$router.push({ path: 'Login' });
+      this.$router.replace({ name: 'Login' });
+      this.$router.go();
+    },
+    LoginIn() {
+      this.$router.push({ name: 'Login' });
+      // this.$router.go();
+    },
+    SignUp() {
+      this.$router.push({ name: 'SignUp' });
+      // this.$router.go();
     }
   },
 

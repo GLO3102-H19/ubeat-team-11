@@ -9,12 +9,14 @@ import '../node_modules/vue-material/dist/vue-material.css';
 import '../node_modules/vue-material/dist/theme/default.css';
 import axios from '../node_modules/axios';
 import vSelect from '../node_modules/vue-select';
+import EventBus from './EventBus';
 
 Vue.use(VueMaterial);
 Vue.use(axios);
 Vue.component('v-select', vSelect);
 
 Vue.config.productionTip = false;
+Vue.prototype.$bus = EventBus;
 
 /* eslint-disable no-new */
 new Vue({

@@ -31,8 +31,11 @@ export default {
     name: '',
     email: '',
     password: '',
+    message: '',
     showSnackbar: false,
-    message: ''
+    position: 'center',
+    duration: 4000,
+    isInfinity: false
   }),
   methods: {
     async signUp() {
@@ -41,6 +44,8 @@ export default {
         this.message = 'your informations is incorrect';
       } else {
         const result = await api.postSignUp(this.name, this.email, this.password);
+        console.log(this.name);
+        console.log(result);
         if (result.status === 200) {
           const login = await api.postLogin(this.email, this.password);
           if (login.status === 200) {

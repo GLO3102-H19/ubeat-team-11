@@ -39,11 +39,10 @@ export default {
   methods: {
     async login() {
       const result = await api.postLogin(this.email, this.password);
-      console.log(result);
       if (result.status !== 200) {
         this.showSnackbar = true;
       } else {
-        this.$router.push({ path: 'Playlists' });
+        this.$bus.$emit('logged', true);
       }
     },
   },

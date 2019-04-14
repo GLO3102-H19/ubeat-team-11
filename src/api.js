@@ -130,9 +130,10 @@ export function deleteFollow(idUserFollow) {
 }
 
 export function getTokenInfo() {
+  console.log(tokenTemp);
   const result = axios
-    .get(`${url}/tokenInfo`, { headers: { Authorization: tokenTemp } })
-    .then(response => (response.data))
+    .get(`${url}/tokenInfo`, { headers: { Authorization: jscookie.get('token') } })
+    .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
 }
@@ -155,7 +156,7 @@ export function postLogin(userEmail, userPassword) {
 export function postSignUp(newName, newEmail, newPassword) {
   const result = axios
     .post(`${url}/signup`, { name: newName, email: newEmail, password: newPassword })
-    .then(response => (response.data))
+    .then(response => (response))
     .catch(error => ({ status: 401, err: error }));
   return result;
 }
@@ -176,7 +177,7 @@ export async function filterplaylistByUserId(userId) {
 
 export function checkIfCookieIsAlive() {
   console.log(typeof jscookie.get('token'));
-  if (typeof tokenTemp === 'undefined') {
+  if (typeof jscookie.get('token') === 'undefined') {
     return false;
   }
   return true;
