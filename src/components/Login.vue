@@ -31,14 +31,15 @@ export default {
     duration: 4000,
     isInfinity: false
   }),
-  mounted() {
-    if (api.checkIfCookieIsAlive()) {
+  beforeMount() {
+    if (api.checkIfCookieIsAlive() === true) {
       this.$router.push({ path: 'Playlists' });
     }
   },
   methods: {
     async login() {
       const result = await api.postLogin(this.email, this.password);
+      console.log(result);
       if (result.status !== 200) {
         this.showSnackbar = true;
       } else {

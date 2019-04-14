@@ -40,7 +40,7 @@ export default {
       ))
       .catch(error => console.log(error));
 
-    const artistSearched = await api.getArtistSearched('Metallica');
+    const artistSearched = await api.artistSearched('Metallica');
     this.listArtists = artistSearched;
   }
 };

@@ -1,158 +1,186 @@
 <template>
-  <md-toolbar class="md-layout md-transparent" >
-    <div class="md-toolbar-row md-layout">
-      <div class="md-layout-item md-toolbar-section-start md-layout-item">
-        <h3 class="md-title" style="flex: 1">
-          <a href="/" id="titleDesign">Ubeat</a>
-        </h3>
+  <md-toolbar>
+      <div class="md-toolbar-row">
+        <div class="md-toolbar-section-start">
+          <h3 class="md-title" style="flex: 1"><a href="/" id="titleDesign">Ubeat</a></h3>
+        </div>
+
+
+  <v-select label="name" style="width: 500px" :filterable="true" :options="searchResult" @change="changeRoute" @search="wichFilter">
+    <template slot="no-options">
+      No Result Found
+    </template>
+    <template slot="option" slot-scope="option" >
+     {{ option.name }}     
+    </template>
+    <template slot="selected-option" slot-scope="option">
+      <div class="selected d-center"> 
+        {{ option.name }}
       </div>
+    </template>
+  </v-select>
+      
+    <md-menu md-size="small">
+      <md-button class="md-icon-button" md-menu-trigger>
+        <md-icon>more_vert</md-icon>
+      </md-button>
 
-      <div>
-
-        <md-autocomplete
-        md-input-placeholder="Search"
-        class="md-layout-item md-medium-hide md-small-hide md-xsmall-hide search"
-        v-model="selectSong"
-        :md-options="searchResult"
-        md-layout="box"
-        @md-changed="getSearchAlbum"
-        @md-opened="getSearchAlbum"
-        @md-selected="pageSearched(this.$el)"
-        >
-          <template slot="md-autocomplete-item" slot-scope="{ item,term }">{{ item.name }}</template>
-          <template slot="md-autocomplete-empty" slot-scope="{ term }"></template>
-          <md-progress-spinner v-if="loaded" class="md-accent" md-mode="indeterminate"></md-progress-spinner>
-        </md-autocomplete>
-
-        <md-radio v-if="selectSong!=null"  v-for="option in options"  v-model="radioChoice" :value="option.choice">{{option.choice}}</md-radio>
-
+      <md-menu-content>
+       <md-menu-item v-for="option in choices" v-bind:key="option.key">
+            <md-radio v-model="radioChoice" :value="option.choice">{{option.choice}}</md-radio>
+       </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  <div class="md-toolbar-section-end">
+         
+    <md-menu md-size="big" md-direction="bottom-end">
+      <md-avatar class="md-avatar-icon" md-menu-trigger>{{this.userName}}</md-avatar>
+      <md-menu-content>
+                <md-button @click="logOut()" class="md-accent">Log Out</md-button>
+      </md-menu-content>
+    </md-menu>
+        </div>
       </div>
-      <div class="md-layout-item md-toolbar-section-end">
-        <md-button v-for="item in navElement" :key="item.key" :to="item.routing" class="md-medium-hide md-small-hide md-xsmall-hide">{{item.navItem}}</md-button>
-        <md-button v-for="item in navElement" :key="item.key" :to="item.routing" class="md-medium-hide md-large-hide md-xlarge-hide showIcon">
-          <md-icon>{{item.icon}}</md-icon>
-        </md-button>
-        <md-button class="md-medium-hide md-large-hide md-xlarge-hide showIcon">
-          <md-icon>search</md-icon>
-        </md-button>
-
-      </div>
-    </div>
-    <search-element-list  v-bind:visible="visible" :selectSong="selectSong" :radioChoice="radioChoice"></search-element-list>
-
-  </md-toolbar>
-
-
+    </md-toolbar>
 
 </template>
 
 <script>
 
-import Search from '@/components/Search';
 
 import * as api from '../api';
 
 export default {
   name: 'navigation',
   data: () => ({
-    visible: false,
-    selectSong: null,
+    selected: {},
     radioChoice: 'Global',
-    songsList: [],
+    userName: '',
     searchResult: [],
-    options: [{ choice: 'Artiste' },
-              { choice: 'Album' },
-              { choice: 'Chanson' },
-              { choice: 'Utilisateur' },
-              { choice: 'Global' }],
+    choices: [{ key: 0, choice: 'Artist' },
+              { key: 1, choice: 'Album' },
+              { key: 4, choice: 'Global' },
+              { key: 2, choice: 'Tracks' },
+              { key: 3, choice: 'Utilisateur' }],
     navElement: [
       { navItem: 'Log In', icon: 'account_box', routing: '/login' }
     ],
     loaded: false
   }),
-
-  components: {
-    'search-element-list': Search
+  async mounted() {
+    /* if (api.checkIfCookieIsAlive() === false) {
+      this.$router.push({ path: 'Login' });
+    }
+    const result = await api.getTokenInfo();
+    if (result.data === 400) {
+      this.$router.push({ path: 'Login' });
+    } else {
+      // this.userName = result.name.substring(0, 1);
+    } */
   },
-
   methods: {
-
-    async getSearchItem(searchTerm) {
-      console.log(searchTerm);
-      const x = await api.globalSearched(searchTerm);
-      window.setTimeout(() => {
-        if (!searchTerm) {
-          this.searchResult = x.results;
-        } else {
-          x.results.filter((item) => {
-            console.log(item);
-            if (item.wrapperType === 'track') {
-              return this.searchResult.push({
-                name: item.trackCensoredName, id: item.collectionId
-              });
-            } else if (item.wrapperType === 'collection') {
-              return this.searchResult.push({ name: item.collectionName, id: item.collectionId });
-            }
-            return this.searchResult.push({ name: item.artistName, id: item.artistId });
-          });
-        }
-      });
-      console.log(this.searchResult);
+    wichFilter(search, loading) {
+      if (this.radioChoice === 'Artist') {
+        loading(true);
+        this.getSearchArtist(loading, search, this);
+      } else if (this.radioChoice === 'Album') {
+        loading(true);
+        this.getSearchAlbum(loading, search, this);
+      } else if (this.radioChoice === 'Utilisateur') {
+        loading(true);
+        this.getSearchUser(loading, search, this);
+      } else if (this.radioChoice === 'Tracks') {
+        loading(true);
+        this.getSearchTrack(loading, search, this);
+      } else {
+        loading(true);
+        this.getSearchItem(loading, search, this);
+      }
     },
-
-    async getSearchArtist(searchTerm) {
-      console.log(searchTerm);
-      const x = await api.artistSearched(searchTerm);
-      window.setTimeout(() => {
-        if (!searchTerm) {
-          this.searchResult = x.results;
-        } else {
-          x.results.filter((item) => {
-            console.log(item);
-            return this.searchResult.push({ name: item.artistName,
-              id: item.artistId });
-          });
-        }
-      });
-      console.log(this.searchResult);
-    },
-
-    async getSearchAlbum(searchTerm) {
-      console.log(searchTerm);
-      this.loaded = true;
+    async getSearchItem(loading, search, vm) {
+      const element = await api.globalSearched(search);
       window.setTimeout(async () => {
-        const x = await api.albumSearched(searchTerm);
-        if (!searchTerm) {
-          this.searchResult = x.results;
+        if (element.status === 400 || search === '') {
+          this.searchResult = [];
         } else {
-          x.results.filter(item => this.searchResult.push({ name: item.collectionName,
-            id: item.collectionId }));
-        }
-        console.log(this.searchResult.length);
-      }, 600);
-      this.loaded = false;
-    },
-
-    async getSearchUser(searchTerm) {
-      const x = await api.userSearched(searchTerm);
-      window.setTimeout(() => {
-        if (searchTerm === '') {
-          this.searchResult = x.results;
-        } else {
-          x.results.filter((item) => {
-            console.log(item);
-            return this.searchResult.push({ name: item.name, id: item.id });
+          element.data.results.forEach((item) => {
+            if (item.wrapperType === 'track') {
+              vm.searchResult.push({ name: item.trackCensoredName, id: item.collectionId, direct: 'Album', params: { collectionId: item.collectionId } });
+            } else if (item.wrapperType === 'collection') {
+              vm.searchResult.push({ name: item.collectionName, id: item.collectionId, direct: 'Album', params: { collectionId: item.collectionId } });
+            } else {
+              vm.searchResult.push({ name: item.artistName, id: item.artistId, direct: 'Artist', params: { artistId: item.artistId } });
+            }
           });
         }
-      });
-      console.log('searchResult ', this.searchResult);
+        loading(false);
+      }, 750);
+    },
+    async getSearchArtist(loading, search, vm) {
+      const element = await api.artistSearched(search);
+      window.setTimeout(() => {
+        if (element.status === 400 || search === '') {
+          this.searchResult = [];
+        } else {
+          element.data.results.forEach(item => (
+            vm.searchResult.push({ name: item.artistName, id: item.artistId, direct: 'Artist', params: { artistId: item.artistId } })
+            )
+          );
+        }
+        loading(false);
+      }, 500);
+    },
+    async getSearchAlbum(loading, search, vm) {
+      const element = await api.albumSearched(search);
+      console.log(element);
+      window.setTimeout(() => {
+        if (element.status === 400 || search === '') {
+          this.searchResult = [];
+        } else {
+          element.data.results.forEach(item => vm.searchResult.push({ name: item.collectionName,
+            id: item.collectionId,
+            direct: 'Album',
+            params: { collectionId: item.collectionId } }));
+        }
+        loading(false);
+      }, 500);
+    },
+
+    async getSearchUser(loading, search, vm) {
+      const element = await api.userSearched(search);
+      window.setTimeout(() => {
+        if (element.status === 400 || search === '') {
+          this.searchResult = [];
+        } else {
+          element.data.forEach(item => vm.searchResult.push(
+            { name: item.name, id: item.id, direct: 'UserProfile', params: { id: item.id } }
+          ));
+        }
+        loading(false);
+      }, 500);
+    },
+    async getSearchTrack(loading, search, vm) {
+      const element = await api.trackSearched(search);
+      window.setTimeout(() => {
+        if (element.status === 400 || search === '') {
+          this.searchResult = [];
+        } else {
+          element.data.results.forEach(item => vm.searchResult.push(
+            { name: item.trackCensoredName, id: item.collectionId, direct: 'Album', params: { collectionId: item.collectionId } }
+          ));
+        }
+        loading(false);
+      }, 500);
+    },
+    changeRoute(option) {
+      this.$router.replace({ name: option.direct, params: option.params });
+      this.$router.go();
+    },
+    logOut() {
+      api.logOut();
+      this.$router.push({ path: 'Login' });
     }
   },
-  pageSearched(value) {
-    console.log('teste50000', value);
-    // this.selectSong = this.searchResult[value].name;
-  }
-
 
 };
 </script>
@@ -184,4 +212,22 @@ export default {
 #titleDesign {
   color: black;
 }
-</style>
+
+.d-center {
+  display: flex;
+  align-items: center;
+}
+
+.selected img {
+  width: auto;
+  max-height: 23px;
+  margin-right: 0.5rem;
+}
+
+.v-select .dropdown li a {
+  padding: 10px 20px;
+  width: 100%;
+  font-siz
+  color: #3c3c3c;
+}
+</e: 1.25em;style>
