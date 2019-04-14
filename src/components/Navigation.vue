@@ -59,11 +59,11 @@ export default {
     radioChoice: 'Global',
     userName: '',
     searchResult: [],
-    choices: [{ key: 0, choice: 'Artist' },
-              { key: 1, choice: 'Album' },
-              { key: 4, choice: 'Global' },
+    choices: [{ key: 4, choice: 'All' },
+              { key: 0, choice: 'Artists' },
+              { key: 1, choice: 'Albums' },
               { key: 2, choice: 'Tracks' },
-              { key: 3, choice: 'Utilisateur' }],
+              { key: 3, choice: 'Users' }],
     navElement: [
       { navItem: 'Log In', icon: 'account_box', routing: '/login' }
     ],
