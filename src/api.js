@@ -1,10 +1,10 @@
 import axios from 'axios';
 import jscookie from 'js-cookie';
 
-
-const url = 'http://ubeat.herokuapp.com';
+const apiKey = '&limit=10&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json';
 let tokenTemp = jscookie.get('token');
-
+const url = 'http://ubeat.herokuapp.com';
+const urlInfo = 'http://ws.audioscrobbler.com/2.0/?method=';
 
 export function getAlbum(idAlbum) {
   console.log(tokenTemp);
@@ -64,13 +64,6 @@ export function getPlaylistById(id) {
 export function deletePlaylist(idPlaylist) {
   const result = axios
     .delete(`${url}/playlists/${idPlaylist}`, { headers: { Authorization: tokenTemp } })
-    .then(response => (response));
-  return result;
-}
-
-export function modifyPlaylist(idPlaylist, dataName) {
-  const result = axios
-    .put(`${url}/playlists/${idPlaylist}`, { name: dataName, owner: 'tommy@ubeat.ca' })
     .then(response => (response));
   return result;
 }
@@ -164,7 +157,7 @@ export function postSignUp(newName, newEmail, newPassword) {
 
 export function getBioFromArtist(artistName) {
   const result = axios
-    .get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json`)
+    .get(`${urlInfo}artist.getinfo&artist=${artistName}${apiKey}`)
     .then(response => (response.data))
     .catch(error => (console.log(error)));
   return result;
@@ -229,5 +222,21 @@ export function userSearched(name) {
     .get(`${url}/search/users?q=${name}`, { headers: { Authorization: tokenTemp } })
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
+  return result;
+}
+
+export function getTopArtistGeo() {
+  const result = axios
+    .get(`${urlInfo}geo.gettopartists&country=canada${apiKey}`)
+    .then(response => (response.data))
+    .catch(error => (console.log(error)));
+  return result;
+}
+
+export function getTopAlbumByArtist(artistName) {
+  const result = axios
+    .get(`${urlInfo}artist.gettopalbums&artist=${artistName}${apiKey}`)
+    .then(response => (response.data))
+    .catch(error => (console.log(error)));
   return result;
 }
