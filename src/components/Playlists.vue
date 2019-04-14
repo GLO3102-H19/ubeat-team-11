@@ -39,13 +39,16 @@ export default {
     showDialog: false,
     error: false,
     output: {},
-    progressStatus: true
+    progressStatus: true,
   }),
   async beforeMount() {
     if (api.checkIfCookieIsAlive() === false) {
       this.$router.push({ name: 'Login' });
     } else {
-      this.playlists = await api.getAllPlaylists();
+      const user = await api.getTokenInfo();
+      console.log(user);
+      this.playlists = await api.filterplaylistByUserId(user.data.id);
+      console.log(this.playlists);
       this.progressStatus = false;
     }
   },

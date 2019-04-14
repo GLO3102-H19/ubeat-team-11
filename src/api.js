@@ -38,9 +38,9 @@ export function getArtistAlbums(idArtist) {
 
 export function getAllPlaylists() {
   const result = axios
-    .get(`${url}/playlists`, { headers: { Authorization: tokenTemp } })
-    .then(response => (response.data))
-    .catch(error => console.log(error));
+    .get(`${url}/playlists`, { headers: { Authorization: jscookie.get('token') } })
+    .then(response => (response))
+    .catch(error => ({ status: 400, err: error }));
   return result;
 }
 
@@ -85,7 +85,8 @@ export function deleteTrackInPlayList(idPlaylist, idTrack) {
 export function postTrackInPlaylist(idPlaylist, track) {
   const result = axios
     .post(`${url}/playlists/${idPlaylist}/tracks`, track, { headers: { Authorization: tokenTemp } })
-    .then(response => (response));
+    .then(response => (response))
+    .catch(error => ({ status: 400, err: error }));
   return result;
 }
 
@@ -170,9 +171,10 @@ export function getBioFromArtist(artistName) {
 }
 
 export async function filterplaylistByUserId(userId) {
-  let data = await getAllPlaylists();
-  data = data.filter(e => e.owner.id === userId);
-  return data;
+  let result = await getAllPlaylists();
+  console.log(result);
+  result = result.data.filter(e => e.owner.id === userId);
+  return result;
 }
 
 export function checkIfCookieIsAlive() {

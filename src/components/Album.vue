@@ -1,7 +1,8 @@
 <template>
   <div id="album" class="md-layout">
+    <add-song-to-playlist-dialog v-bind:songItem="this.theSong" v-bind:showDialog="this.showDialog" v-on:add-song-playlist-status="showDialogStatus" ></add-song-to-playlist-dialog>
     <md-content class="md-layout-item md-size-100">
-    <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
+      <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
       <div class="md-layout md-alignment-center-center">
         <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
           <figure>
@@ -34,40 +35,64 @@
           </div>
         </div>
       </div>
+         <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar" md-persistent>
+      <span>{{this.errormessage}}</span>
+      <md-button class="md-primary" @click="showSnackbar = false">close</md-button>
+    </md-snackbar>
     </div>
-    <div class=""></div>
   </div>
 </template>
 
 <script>
+  import AddSongToPlayListDialog from '@/components/AddSongPlaylistDialog';
   import * as api from '../api';
   import SongElementList from '../components/SongElementList';
 
   export default {
     name: 'Album',
     components: {
-      'song-element-list': SongElementList
+      'song-element-list': SongElementList,
+      'add-song-to-playlist-dialog': AddSongToPlayListDialog
     },
     data() {
       return {
         id: 0,
         AlbumInformation: Object,
         listTracks: [],
-        progressStatus: true
+        progressStatus: true,
+        showSnackbar: false,
+        position: 'center',
+        duration: 4000,
+        isInfinity: false,
+        errormessage: '',
+        myPlaylist: [],
+        showDialog: false,
+        theSong: {}
       };
     },
     async  mounted() {
       this.id = this.$route.params.collectionId;
       const item = await api.getAlbum(this.id);
-      this.AlbumInformation = item[0];
       const tracks = await api.getTracks(this.id);
+      this.AlbumInformation = item[0];
       this.listTracks = tracks;
       this.progressStatus = false;
     },
-    computed: {
+    created() {
+      this.$bus.$on('add-song-dialog', (msg) => {
+        console.log(msg);
+        this.showDialog = msg.dialog;
+        this.theSong = msg.songItem;
+      });
+    },
+    methods: {
+      showDialogStatus(value) {
+        this.showDialog = false;
+        this.errormessage = value.msg;
+        this.showSnackbar = true;
+      }
     }
-
-  };
+};
 </script>
 
 

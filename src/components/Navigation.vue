@@ -36,7 +36,8 @@
           <md-menu v-if="isLogin" md-size="big" md-direction="bottom-end">
             <md-avatar class="md-avatar-icon" md-menu-trigger>{{this.userName}}</md-avatar>
             <md-menu-content>
-                      <md-button @click="logOut()" class="md-accent">Log Out</md-button>
+                <md-menu-item @click="myPlaylist()">My PlayList</md-menu-item>
+                <md-menu-item @click="logOut()" class="md-accent">Log Out</md-menu-item>
             </md-menu-content>
           </md-menu>
            <md-button v-if="!isLogin" @click="LoginIn()" >Log in</md-button>
@@ -185,7 +186,7 @@ export default {
       }, 500);
     },
     changeRoute(option) {
-      this.$router.replace({ name: option.direct, params: option.params });
+      this.$router.push({ name: option.direct, params: option.params });
       this.$router.go();
     },
     logOut() {
@@ -195,11 +196,12 @@ export default {
     },
     LoginIn() {
       this.$router.push({ name: 'Login' });
-      // this.$router.go();
     },
     SignUp() {
       this.$router.push({ name: 'SignUp' });
-      // this.$router.go();
+    },
+    myPlaylist() {
+      this.$router.push({ name: 'Playlists' });
     }
   },
 
