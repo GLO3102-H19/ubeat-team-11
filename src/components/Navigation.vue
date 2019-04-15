@@ -37,6 +37,7 @@
             <md-avatar class="md-avatar-icon" md-menu-trigger>{{this.userName}}</md-avatar>
             <md-menu-content>
                 <md-menu-item @click="myPlaylist()">My PlayList</md-menu-item>
+                <md-menu-item @click="MyFriends()">My Firends</md-menu-item>
                 <md-menu-item @click="logOut()" class="md-accent">Log Out</md-menu-item>
             </md-menu-content>
           </md-menu>
@@ -57,7 +58,7 @@ export default {
   data: () => ({
     isLogin: false,
     selected: {},
-    radioChoice: 'Global',
+    radioChoice: 'All',
     userName: '',
     searchResult: [],
     choices: [{ key: 4, choice: 'All' },
@@ -99,7 +100,7 @@ export default {
       } else if (this.radioChoice === 'Album') {
         loading(true);
         this.getSearchAlbum(loading, search, this);
-      } else if (this.radioChoice === 'Utilisateur') {
+      } else if (this.radioChoice === 'Users') {
         loading(true);
         this.getSearchUser(loading, search, this);
       } else if (this.radioChoice === 'Tracks') {
@@ -202,6 +203,9 @@ export default {
     },
     myPlaylist() {
       this.$router.push({ name: 'Playlists' });
+    },
+    MyFriends() {
+      this.$router.push({ name: 'MyFriends' });
     }
   },
 

@@ -70,6 +70,11 @@
         theSong: {}
       };
     },
+    async  beforeMount() {
+      if (api.checkIfCookieIsAlive() === false) {
+        this.$router.push({ name: 'Login' });
+      }
+    },
     async  mounted() {
       this.id = this.$route.params.collectionId;
       const item = await api.getAlbum(this.id);

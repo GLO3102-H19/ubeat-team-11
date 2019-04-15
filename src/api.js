@@ -109,16 +109,17 @@ export function getUsersbyId(userId) {
   const config = { headers: { Authorization: tokenTemp } };
   const result = axios
     .get(`${url}/users/${userId}`, config)
-    .then(response => (response.data))
-    .catch(error => console.error(error));
+    .then(response => (response))
+    .catch(error => ({ status: 400, err: error }));
   return result;
 }
 
 export function postFollow(idUserFollow) {
+  console.log(idUserFollow);
   const result = axios
     .post(`${url}/follow`, { id: idUserFollow }, { headers: { Authorization: tokenTemp } })
-    .then(response => (response.data))
-    .catch(error => console.error(error));
+    .then(response => (response))
+    .catch(error => ({ status: 400, err: error }));
   return result;
 }
 

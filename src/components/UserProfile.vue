@@ -1,6 +1,7 @@
 <template>
   <div id="profile" class="md-layout">
     <md-content class="md-layout-item md-size-100">
+      <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
       <div class="md-layout md-alignment-center-center">
         <div class="md-layout-item md-size-20 md-xsmall-size-100 md-small-100 md-medium-100">
           <md-avatar class="md-avatar-icon md-large md-accent">
@@ -12,7 +13,7 @@
           <h1 class="md-display-1">Email: {{this.userInformation.email}}</h1>
         </div>
         <div class="md-layout-item md-size-40 md-xsmall-size-100 md-small-100 md-medium-100">
-          <md-switch v-model="this.followStatus" @change="UpdateFollow()">{{this.followStatusText}}</md-switch>
+          <md-switch v-if="show" v-model="followStatus" @change="UpdateFollow()">{{this.followStatusText}}</md-switch>
         </div>
       </div>
     </md-content>
@@ -37,7 +38,10 @@ export default {
     followStatusText: 'Unfollow',
     followStatus: false,
     playlistUser: [],
-    friendlistUsers: []
+    friendlistUsers: [],
+    commumFriend: [],
+    show: false,
+    progressStatus: true
   }),
   components: {
     'playlist-element-list': PlaylistEmentList,
@@ -48,51 +52,67 @@ export default {
     const itemUser = await api.getUsersbyId(this.id);
     const itemPlaylist = await api.filterplaylistByUserId(this.id);
     const connectedUser = await api.getTokenInfo();
-    this.userInformation = itemUser;
+    this.userInformation = itemUser.data;
     this.playlistUser = itemPlaylist;
     this.getIntial();
     let isInside = false;
-    connectedUser.following.forEach((element) => {
+    connectedUser.data.following.forEach((element) => {
       if (element.id === this.userInformation.id) {
         this.followStatus = true;
+        this.followStatusText = 'follow';
       }
     });
-    itemUser.following.forEach((element1) => {
-      connectedUser.following.forEach((element2) => {
-        if (element1.id === element2.id) {
-          const item = element1;
+    let item = {};
+    itemUser.data.following.forEach((element1) => {
+      connectedUser.data.following.forEach((element2) => {
+        if (element2.id === element1.id) {
+          console.log(element1);
+          console.log(item);
+          item = element1;
           item.doIfollow = true;
-          this.friendlistUsers.push(item);
+          this.commumFriend.push(item);
           isInside = true;
         }
       });
       if (!isInside) {
-        const item = element1;
+        // const result = await api.userSearched(element1.name);
+        // item = result.data.filter(x => (x.id === element1.id))[0];
+        item = element1;
         item.doIfollow = false;
-        this.friendlistUsers.push(item);
+        this.commumFriend.push(item);
       } else {
         isInside = false;
       }
     });
+    console.log(this.commumFriend);
+    this.commumFriend.forEach(async (element) => {
+      const result = await api.userSearched(element.name);
+      const users = result.data.filter(x => (x.name === element.name && x.email === element.email));
+      if (users.length !== 0) {
+        item.id = users[0].id;
+        this.friendlistUsers.push(item);
+      }
+    });
+    console.log('mes amis avec id');
+    console.log(this.friendlistUsers);
+    this.progressStatus = false;
+    this.show = true;
   },
   methods: {
     getIntial() {
-      const editName = this.userInformation.name.split(' ');
-      if (editName.length !== 1) {
-        this.userInformation.initial = editName[0].charAt(0) + editName[1].charAt(0);
-      } else {
-        this.userInformation.initial = editName[0].charAt(0);
-      }
+      this.userInformation.initial = this.userInformation.name.substring(0, 1);
     },
     async UpdateFollow() {
-      if (!this.followStatus) {
-        console.log('hello');
+      console.log('update le follow');
+      console.log(this.followStatus);
+      if (this.followStatus === true) {
+        console.log('add friend');
         const result = await api.postFollow(this.id);
         console.log(result);
         this.followStatus = true;
         this.followStatusText = 'follow';
       } else {
-        // mettre API for unfollow someone
+        console.log('remove friend');
         const result = await api.deleteFollow(this.id);
         console.log(result);
         this.followStatus = false;

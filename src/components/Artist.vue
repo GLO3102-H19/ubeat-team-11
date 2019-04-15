@@ -37,6 +37,11 @@ export default {
     bio: '',
     progressStatus: true
   }),
+  async beforeMount() {
+    if (api.checkIfCookieIsAlive() === false) {
+      this.$router.push({ name: 'Login' });
+    }
+  },
   async mounted() {
     this.id = this.$route.params.artistId;
     const listAlbums = await api.getArtistAlbums(this.id);
