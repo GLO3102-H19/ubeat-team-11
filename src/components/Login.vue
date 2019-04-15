@@ -12,7 +12,7 @@
       <md-button @click="login()" class="md-raised md-primary">Login</md-button>
     <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar" md-persistent>
       <span>The Email or Password is Incorrect</span>
-      <md-button class="md-primary" @click="showSnackbar = false">Retry</md-button>
+      <md-button class="md-primary" @click="showSnackbar = false">Dismiss</md-button>
     </md-snackbar>
     </md-card>
   </md-content>
