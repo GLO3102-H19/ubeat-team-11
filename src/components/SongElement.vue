@@ -10,7 +10,7 @@
             </md-button>
         </md-table-cell>
         <md-table-cell>
-       <add-song-to-playlist-dialog v-bind:songItem="song" v-bind:showDialog="this.showDialog" v-on:close-dialog="showDialogStatus" ></add-song-to-playlist-dialog>
+       <!--<add-song-to-playlist-dialog v-bind:songItem="song" v-bind:showDialog="this.showDialog" v-on:close-dialog="showDialogStatus" ></add-song-to-playlist-dialog>-->
 
              <md-menu md-size="big" md-direction="bottom-end">
         <md-button class="md-icon-button" md-menu-trigger>
@@ -59,7 +59,7 @@ export default {
   methods: {
     AddSongToPlay() {
       this.showDialog = true;
-      console.log(this.showDialog);
+      this.$bus.$emit('add-song-dialog', { songItem: this.song, dialog: true });
     },
     Updatedialog(value) {
       this.showDialog = value;

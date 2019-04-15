@@ -1,10 +1,11 @@
 <template>
     <md-dialog :md-active.sync="showDialog" :md-opened="loadPlaylist()" :md-close-on-esc="false" :md-click-outside-to-close="false">
         <md-dialog-title>Add Song to a playlist</md-dialog-title>
-        <md-field>
+        <md-field :class="{ 'md-invalid': error }">
             <label for="playlists">Playlists</label>
             <md-select v-model="playlistSelected" name="playlist" id="movie">
                 <md-option v-for="item in this.Playlists" v-bind:key="item.id" :value="item.id">{{item.name}}</md-option>
+                <span class="md-error" :v-if="error">Please Select a Playlist</span>
             </md-select>
         </md-field>
          <md-dialog-actions>
@@ -24,7 +25,8 @@ export default {
   },
   data: () => ({
     Playlists: Array,
-    playlistSelected: null
+    playlistSelected: null,
+    error: false
   }),
   methods: {
     updateShowDialog() {
@@ -32,20 +34,25 @@ export default {
     },
     async loadPlaylist() {
       if (this.showDialog === true) {
-        // console.log('Open');
-        const temp = await api.getAllPlaylists();
-        // console.log(temp);
+        const user = await api.getTokenInfo();
+        const temp = await api.filterplaylistByUserId(user.data.id);
         this.Playlists = temp;
-        // console.log(this.Playlists);
       }
     },
     async addSongToPlaylist() {
       if (this.playlistSelected == null) {
-        console.log('Please select a playlist');
+        this.error = true;
       } else {
+        console.log(this.playlistSelected);
+        console.log(this.songItem);
         const message = await api.postTrackInPlaylist(this.playlistSelected, this.songItem);
-        console.log(message);
-        this.$emit('close-dialog', false);
+        if (message.status !== 200) {
+          this.error = false;
+          this.$emit('add-song-playlist-status', { status: true, msg: 'problem while adding the song to  your playlist, please try agin' });
+        } else {
+          this.error = false;
+          this.$emit('add-song-playlist-status', { status: false, msg: 'the song is added' });
+        }
       }
     }
   }

@@ -5,6 +5,8 @@ const qs = require('qs');
 axios.defaults.baseURL = 'http://ubeat.herokuapp.com';
 axios.defaults.headers.common.Authorization = jscookie.get('token');
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+const apiKey = '&limit=10&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json';
+const urlInfo = 'http://ws.audioscrobbler.com/2.0/?method=';
 
 export function getAlbum(idAlbum) {
   const result = axios
@@ -63,13 +65,6 @@ export function getPlaylistById(id) {
 export function deletePlaylist(idPlaylist) {
   const result = axios
     .delete(`/playlists/${idPlaylist}`)
-    .then(response => (response));
-  return result;
-}
-
-export function modifyPlaylist(idPlaylist, dataName) {
-  const result = axios
-    .put(`/playlists/${idPlaylist}`, { name: dataName, owner: 'tommy@ubeat.ca' })
     .then(response => (response));
   return result;
 }
@@ -172,16 +167,17 @@ export function postSignUp(newName, newEmail, newPassword) {
 
 export function getBioFromArtist(artistName) {
   const result = axios
-    .get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json`)
+    .get(`${urlInfo}artist.getinfo&artist=${artistName}${apiKey}`)
     .then(response => (response.data))
     .catch(error => console.error(error));
   return result;
 }
 
 export async function filterplaylistByUserId(userId) {
-  let data = await getAllPlaylists();
-  data = data.filter(e => e.owner.id === userId);
-  return data;
+  let result = await getAllPlaylists();
+  console.log(result);
+  result = result.data.filter(e => e.owner.id === userId);
+  return result;
 }
 
 export function checkIfCookieIsAlive() {
@@ -236,5 +232,21 @@ export function userSearched(name) {
     .get(`/search/users?q=${name}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
+  return result;
+}
+
+export function getTopArtistGeo() {
+  const result = axios
+    .get(`${urlInfo}geo.gettopartists&country=canada${apiKey}`)
+    .then(response => (response.data))
+    .catch(error => (console.log(error)));
+  return result;
+}
+
+export function getTopAlbumByArtist(artistName) {
+  const result = axios
+    .get(`${urlInfo}artist.gettopalbums&artist=${artistName}${apiKey}`)
+    .then(response => (response.data))
+    .catch(error => (console.log(error)));
   return result;
 }
