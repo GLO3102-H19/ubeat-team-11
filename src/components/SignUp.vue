@@ -43,6 +43,9 @@
           <md-button type="submit" class="md-raised md-primary" :disabled="sending">Create user</md-button>
         </md-card-actions>
       </md-card>
+
+      <md-snackbar :md-active.sync="userSaved">The user was saved with success!</md-snackbar>
+      <md-snackbar :md-active.sync="errored">We are sorry! An unexpected error occured. Please retry later.</md-snackbar>
     </form>
   </md-content>
 </template>
@@ -63,6 +66,7 @@ export default {
     },
     userSaved: false,
     sending: false,
+    errored: false,
   }),
   validations: {
     form: {
@@ -102,7 +106,11 @@ export default {
       postSignUp(this.form.name, this.form.email, this.form.password)
       .then((response) => {
         console.log(response);
-        this.userSaved = true;
+        if (response === 401) {
+          this.errored = true;
+        } else {
+          this.userSaved = true;
+        }
         this.sending = false;
       });
     },
@@ -115,6 +123,7 @@ export default {
     },
   }
 };
+
 </script>
 
 <style scoped>

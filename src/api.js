@@ -154,6 +154,7 @@ export function postLogin(userEmail, userPassword) {
 export function postSignUp(newName, newEmail, newPassword) {
   const result = axios
     .post('/signup', qs.stringify({ name: newName, email: newEmail, password: newPassword }))
+    .then(response => (response))
     .catch((error) => {
       if (error.response) {
         console.log(error.response.data);
@@ -165,8 +166,8 @@ export function postSignUp(newName, newEmail, newPassword) {
         console.log('Error', error.message);
       }
       console.log(error.config);
-    })
-    .finally(response => (response));
+      return error.response.status;
+    });
   return result;
 }
 
