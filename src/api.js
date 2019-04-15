@@ -148,7 +148,7 @@ export function postLogin(userEmail, userPassword) {
       axios.defaults.headers.common.Authorization = response.data.token;
       return response;
     })
-    .catch(error => console.error(error));
+    .catch(error => ({ status: 400, err: error }));
   return result;
 }
 export function postSignUp(newName, newEmail, newPassword) {
