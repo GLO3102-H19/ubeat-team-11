@@ -45,10 +45,13 @@ export default {
   async mounted() {
     this.id = this.$route.params.artistId;
     const listAlbums = await api.getArtistAlbums(this.id);
-    const artistInfo = await api.getArtist(this.id);
-    this.artistInfo = artistInfo.results[0];
-    this.albumArtist = listAlbums.results;
+    const artist = await api.getArtist(this.id);
+    this.artistInfo = artist.results[0];
+    this.albumArtist = listAlbums.data.results;
+    console.log(listAlbums);
+    console.log(this.artistInfo);
     const bio = await api.getBioFromArtist(this.artistInfo.artistName);
+    console.log(bio);
     const image = bio.artist.image.find(item => item.size === 'mega');
     this.imageLink = image['#text'];
     const indexRemoveLink = bio.artist.bio.summary.indexOf('<');

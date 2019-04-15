@@ -1,48 +1,58 @@
 <template>
   <div>
-    <h1 class="md-display-1">Play List</h1>
-    <playlist-element-list v-bind:playlists="newPlaylist"></playlist-element-list>
-    <h1 class="md-display-1">Albums</h1>
-    <album-element-list v-bind:albums="newAlbums"></album-element-list>
-    <h1 class="md-display-1">Artists:</h1>
-    <artist-element-list v-bind:artists="listArtists"></artist-element-list>
+    <md-progress-bar v-if="progressStatus" class="md-accent" md-mode="query"></md-progress-bar>
+    <h1 v-if="content" class="md-display-1">Top Artist in Canada</h1>
+    <artist-element-list v-bind:artists="listArtistWithImage" ></artist-element-list>
+    <h1 v-if="content" class="md-display-1">Popular Album:</h1>
+    <album-element-list v-bind:albums="listAlbums"></album-element-list>
   </div>
 </template>
 
 <script>
 import AlbumElementList from '@/components/AlbumElementList';
-import PlaylistElementList from '@/components/PlaylistElementList';
 import ArtistElementList from '@/components/ArtistElementList';
-import Axios from 'axios';
 import * as api from '../api';
+
 
 export default {
   components: {
     'album-element-list': AlbumElementList,
-    'playlist-element-list': PlaylistElementList,
-    'artist-element-list': ArtistElementList
+    'artist-element-list': ArtistElementList,
   },
   data: () => ({
-    newAlbums: [],
-    newPlaylist: [],
     listArtists: [],
+    listAlbumName: [],
+    listAlbums: [],
+    listImages: [],
+    listArtistWithImage: [],
+    progressStatus: true,
+    content: false
   }),
   async mounted() {
-    Axios
-      .get('http://ubeat.herokuapp.com/unsecure/search/albums?q=metallica')
-      .then(response => (
-        this.newAlbums = response.data.results.map(item => ({
-          collectionId: item.collectionId,
-          collectionName: item.collectionName,
-          artistName: item.artistName,
-          artworkUrl100: item.artworkUrl100
-        }))
-      ))
-      .catch(error => console.log(error));
-
-    const artistSearched = await api.artistSearched('Metallica');
-    this.listArtists = artistSearched;
-  }
+    const artistTopGeo = await api.getTopArtistGeo();
+    this.listArtistsName = artistTopGeo.topartists.artist.map(item => item.name);
+    this.listArtists = await Promise.all(this.listArtistsName.map(async (item) => {
+      const x = await api.artistSearched(item);
+      return x.data.results[0];
+    }));
+    this.listImages = await Promise.all(this.listArtistsName.map(async (item) => {
+      const x = await api.getBioFromArtist(item);
+      return x.artist.image[1]['#text'];
+    }));
+    for (let i = 0; i < this.listArtistsName.length; i += 1) {
+      this.listArtistWithImage.push({ img: this.listImages[i], artist: this.listArtists[i] });
+    }
+    this.listAlbumName = await Promise.all(this.listArtistsName.map(async (item) => {
+      const x = await api.getTopAlbumByArtist(item);
+      return x.topalbums.album[0].name;
+    }));
+    this.listAlbums = await Promise.all(this.listAlbumName.map(async (item) => {
+      const x = await api.albumSearched(item);
+      return x.data.results[0];
+    }));
+    this.progressStatus = false;
+    this.content = true;
+  },
 };
 </script>
 

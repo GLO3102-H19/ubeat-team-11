@@ -86,7 +86,7 @@ export default {
         const user = await api.getTokenInfo();
         this.userName = user.data.name.substring(0, 1);
         this.isLogin = msg;
-        this.$router.replace({ name: 'Playlists' });
+        this.$router.replace({ name: 'Home' });
         this.$router.go();
       }
       return msg;
