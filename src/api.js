@@ -1,15 +1,14 @@
-import axios from 'axios';
-import jscookie from 'js-cookie';
+const axios = require('axios');
+const jscookie = require('js-cookie');
+const qs = require('qs');
 
-
-const url = 'http://ubeat.herokuapp.com';
-let tokenTemp = jscookie.get('token');
-
+axios.defaults.baseURL = 'http://ubeat.herokuapp.com';
+axios.defaults.headers.common.Authorization = jscookie.get('token');
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 export function getAlbum(idAlbum) {
-  console.log(tokenTemp);
   const result = axios
-    .get(`${url}/albums/${idAlbum}`, { headers: { Authorization: tokenTemp } })
+    .get(`/albums/${idAlbum}`)
     .then(response => (response.data.results))
     .catch(error => console.log(error));
   return result;
@@ -17,28 +16,28 @@ export function getAlbum(idAlbum) {
 
 export function getArtist(idArtist) {
   const result = axios
-    .get(`${url}/artists/${idArtist}`, { headers: { Authorization: tokenTemp } })
+    .get(`/artists/${idArtist}`)
     .then(response => (response.data));
   return result;
 }
 
 export function getTracks(idAlbum) {
   const result = axios
-    .get(`${url}/albums/${idAlbum}/tracks`, { headers: { Authorization: tokenTemp } })
+    .get(`/albums/${idAlbum}/tracks`)
     .then(response => (response.data.results));
   return result;
 }
 
 export function getArtistAlbums(idArtist) {
   const result = axios
-    .get(`${url}/artists/${idArtist}/albums`, { headers: { Authorization: tokenTemp } })
+    .get(`/artists/${idArtist}/albums`)
     .then(response => (response.data));
   return result;
 }
 
 export function getAllPlaylists() {
   const result = axios
-    .get(`${url}/playlists`, { headers: { Authorization: tokenTemp } })
+    .get('/playlists')
     .then(response => (response.data))
     .catch(error => console.log(error));
   return result;
@@ -46,7 +45,7 @@ export function getAllPlaylists() {
 
 export function createPlayList(dataName, dataOwner) {
   const result = axios
-    .post(`${url}/playlists`, { name: dataName, owner: dataOwner }, { headers: { Authorization: tokenTemp } })
+    .post('/playlists', { name: dataName, owner: dataOwner })
     .then(response => (
       response.data
     ));
@@ -55,7 +54,7 @@ export function createPlayList(dataName, dataOwner) {
 
 export function getPlaylistById(id) {
   const result = axios
-    .get(`${url}/playlists/${id}`, { headers: { Authorization: tokenTemp } })
+    .get(`/playlists/${id}`)
     .then(response => (response.data))
     .catch(error => console.log(error));
   return result;
@@ -63,51 +62,50 @@ export function getPlaylistById(id) {
 
 export function deletePlaylist(idPlaylist) {
   const result = axios
-    .delete(`${url}/playlists/${idPlaylist}`, { headers: { Authorization: tokenTemp } })
+    .delete(`/playlists/${idPlaylist}`)
     .then(response => (response));
   return result;
 }
 
 export function modifyPlaylist(idPlaylist, dataName) {
   const result = axios
-    .put(`${url}/playlists/${idPlaylist}`, { name: dataName, owner: 'tommy@ubeat.ca' })
+    .put(`/playlists/${idPlaylist}`, { name: dataName, owner: 'tommy@ubeat.ca' })
     .then(response => (response));
   return result;
 }
 
 export function deleteTrackInPlayList(idPlaylist, idTrack) {
   const result = axios
-    .delete(`${url}/playlists/${idPlaylist}/tracks/${idTrack}`, { headers: { Authorization: tokenTemp } })
+    .delete(`/playlists/${idPlaylist}/tracks/${idTrack}`)
     .then(response => (response));
   return result;
 }
 
 export function postTrackInPlaylist(idPlaylist, track) {
   const result = axios
-    .post(`${url}/playlists/${idPlaylist}/tracks`, track, { headers: { Authorization: tokenTemp } })
+    .post(`/playlists/${idPlaylist}/tracks`, track)
     .then(response => (response));
   return result;
 }
 
 export function putEditNamePlayList(playlist, newName) {
   const result = axios
-    .put(`${url}/playlists/${playlist.id}`, { name: newName, owner: playlist.owner.email }, { headers: { Authorization: tokenTemp } })
+    .put(`/playlists/${playlist.id}`, { name: newName, owner: playlist.owner.email })
     .then(response => (response));
   return result;
 }
 
 export function getUsers() {
   const result = axios
-    .get(`${url}/users`, { Authorization: tokenTemp })
+    .get('/users')
     .then(response => (response.data))
     .catch(error => console.error(error));
   return result;
 }
 
 export function getUsersbyId(userId) {
-  const config = { headers: { Authorization: tokenTemp } };
   const result = axios
-    .get(`${url}/users/${userId}`, config)
+    .get(`/users/${userId}`)
     .then(response => (response.data))
     .catch(error => console.error(error));
   return result;
@@ -115,7 +113,7 @@ export function getUsersbyId(userId) {
 
 export function postFollow(idUserFollow) {
   const result = axios
-    .post(`${url}/follow`, { id: idUserFollow }, { headers: { Authorization: tokenTemp } })
+    .post('/follow', { id: idUserFollow })
     .then(response => (response.data))
     .catch(error => console.error(error));
   return result;
@@ -123,41 +121,52 @@ export function postFollow(idUserFollow) {
 
 export function deleteFollow(idUserFollow) {
   const result = axios
-    .delete(`${url}/follow/${idUserFollow}`, { headers: { Authorization: tokenTemp } })
+    .delete(`/follow/${idUserFollow}`)
     .then(response => (response.data))
     .catch(error => console.error(error));
   return result;
 }
 
 export function getTokenInfo() {
-  console.log(tokenTemp);
   const result = axios
-    .get(`${url}/tokenInfo`, { headers: { Authorization: jscookie.get('token') } })
+    .get('/tokenInfo')
     .then(response => (response))
-    .catch(error => ({ status: 400, err: error }));
+    .catch(error => console.error(error));
   return result;
 }
 export function logOut() {
-  tokenTemp = '';
+  axios.defaults.headers.common.Authorization = '';
   jscookie.remove('token');
 }
 
 export function postLogin(userEmail, userPassword) {
   const value = { email: userEmail, password: userPassword };
   const result = axios
-    .post(`${url}/login`, value)
+    .post('/login', value)
     .then((response) => {
       jscookie.set('token', response.data.token);
+      axios.defaults.headers.common.Authorization = response.data.token;
       return response;
     })
-    .catch(error => ({ status: 400, err: error }));
+    .catch(error => console.error(error));
   return result;
 }
 export function postSignUp(newName, newEmail, newPassword) {
   const result = axios
-    .post(`${url}/signup`, { name: newName, email: newEmail, password: newPassword })
-    .then(response => (response))
-    .catch(error => ({ status: 401, err: error }));
+    .post('/signup', qs.stringify({ name: newName, email: newEmail, password: newPassword }))
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    })
+    .finally(response => (response));
   return result;
 }
 
@@ -165,7 +174,7 @@ export function getBioFromArtist(artistName) {
   const result = axios
     .get(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=206a3a65c3a609d1189d6b69e4982b43&format=json`)
     .then(response => (response.data))
-    .catch(error => (console.log(error)));
+    .catch(error => console.error(error));
   return result;
 }
 
@@ -184,7 +193,7 @@ export function checkIfCookieIsAlive() {
 }
 export function idUser(id) {
   const result = axios
-    .get(`${url}/users/:${id}`)
+    .get(`/users/:${id}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
@@ -192,7 +201,7 @@ export function idUser(id) {
 
 export function albumSearched(album) {
   const result = axios
-    .get(`${url}/search/albums?q=${album}`, { headers: { Authorization: tokenTemp } })
+    .get(`/search/albums?q=${album}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
@@ -200,7 +209,7 @@ export function albumSearched(album) {
 
 export function artistSearched(artist) {
   const result = axios
-    .get(`${url}/search/artists?q=${artist}`, { headers: { Authorization: tokenTemp } })
+    .get(`/search/artists?q=${artist}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
@@ -208,7 +217,7 @@ export function artistSearched(artist) {
 
 export function globalSearched(name) {
   const result = axios
-    .get(`${url}/search/?q=${name}`, { headers: { Authorization: tokenTemp } })
+    .get(`/search/?q=${name}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
@@ -216,7 +225,7 @@ export function globalSearched(name) {
 
 export function trackSearched(track) {
   const result = axios
-    .get(`${url}/search/tracks?q=${track}`, { headers: { Authorization: tokenTemp } })
+    .get(`/search/tracks?q=${track}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
@@ -224,7 +233,7 @@ export function trackSearched(track) {
 
 export function userSearched(name) {
   const result = axios
-    .get(`${url}/search/users?q=${name}`, { headers: { Authorization: tokenTemp } })
+    .get(`/search/users?q=${name}`)
     .then(response => (response))
     .catch(error => ({ status: 400, err: error }));
   return result;
